@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="-740" y="-978"/>
         </scene>
-        <!--View Controller-->
+        <!--Intro ScreenVC-->
         <scene sceneID="HvI-4i-ssa">
             <objects>
-                <viewController id="njm-Md-nyQ" sceneMemberID="viewController">
+                <viewController id="njm-Md-nyQ" customClass="IntroScreenVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Asl-bI-noz"/>
                         <viewControllerLayoutGuide type="bottom" id="uDz-xl-bNq"/>
@@ -139,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="-978.26086956521749"/>
         </scene>
-        <!--View Controller-->
+        <!--Get Initial DetailsVC-->
         <scene sceneID="aP1-4I-8fd">
             <objects>
-                <viewController id="MIy-Fh-d4V" sceneMemberID="viewController">
+                <viewController id="MIy-Fh-d4V" customClass="GetInitialDetailsVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="duM-vu-DfG"/>
                         <viewControllerLayoutGuide type="bottom" id="Xcz-Xn-xZT"/>
