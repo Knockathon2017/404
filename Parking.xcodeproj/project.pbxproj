@@ -93,6 +93,7 @@
 		F45B0E881F4710310008C5F1 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
+				F45B0E891F4710310008C5F1 /* AppDelegate.swift */,
 				F411CC991F4773A3007325F9 /* GetInitialDetailsVC.swift */,
 				F411CC9A1F4773A3007325F9 /* IntroScreenVC.swift */,
 				F411CC9B1F4773A3007325F9 /* Parking-Bridging-Header.h */,
@@ -101,7 +102,6 @@
 				F411CC9E1F4773A3007325F9 /* RiskFactorMapVC.swift */,
 				F411CC9F1F4773A3007325F9 /* RiskPolygon.swift */,
 				F411CCA01F4773A3007325F9 /* riskZone.json */,
-				F45B0E891F4710310008C5F1 /* AppDelegate.swift */,
 				F45B0E8B1F4710310008C5F1 /* ViewController.swift */,
 				F411CCA81F4773F4007325F9 /* Main.storyboard */,
 				F45B0E901F4710310008C5F1 /* Assets.xcassets */,
@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					F45B0E851F4710310008C5F1 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = X4Q8Z466M4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -368,6 +369,7 @@
 			baseConfigurationReference = 2030628E957C3524EB98A8E8 /* Pods-Parking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X4Q8Z466M4;
 				INFOPLIST_FILE = Parking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gaurav.Parking;
@@ -381,6 +383,7 @@
 			baseConfigurationReference = FE61AE2A06FA239F496E916C /* Pods-Parking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X4Q8Z466M4;
 				INFOPLIST_FILE = Parking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gaurav.Parking;
