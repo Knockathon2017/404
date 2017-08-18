@@ -6,4 +6,8 @@
 //  Copyright © 2017 Gaurav. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class IntroScreenVC: UIViewController {
+    
+}
