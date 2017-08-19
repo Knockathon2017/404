@@ -32,6 +32,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
     
     @IBOutlet var googleMapView: GMSMapView!
     @IBOutlet var labelMessage: UILabel!
+    @IBOutlet var activity: UIActivityIndicatorView!
     
     var locationManager = CLLocationManager()
     
@@ -61,8 +62,17 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
         
         self.getMyLocation(nil)
         
+        
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        activity.isHidden = false
+        
+        UIView.animate(withDuration: 1, delay: 5.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: .allowUserInteraction, animations: {
+            self.activity.isHidden = true
+        }, completion: { (_) in
+            // complete
+        })
+    }
     
     
     @IBAction func backAction(_ sender: Any) {
@@ -81,7 +91,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
             
             
             
-            self.initOverlays(CLLocationCoordinate2DMake(28.625267, 77.373419))
+            self.initOverlays(CLLocationCoordinate2DMake((self.appDelegate?.selectedLocation?.coordinate.latitude)!, (self.appDelegate?.selectedLocation?.coordinate.longitude)!))
             
             //self.initOverlays(userLocation.coordinate)
             

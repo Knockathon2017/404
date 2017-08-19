@@ -25,7 +25,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXQ-0E-S1Z" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aE3-xK-gTv">
+                                        <rect key="frame" x="177" y="291" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="aE3-xK-gTv" firstAttribute="centerX" secondItem="BXQ-0E-S1Z" secondAttribute="centerX" id="K6A-SW-m38"/>
+                                    <constraint firstItem="aE3-xK-gTv" firstAttribute="centerY" secondItem="BXQ-0E-S1Z" secondAttribute="centerY" id="te7-ft-0i0"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujY-FS-Ltg">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -81,6 +90,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="aE3-xK-gTv" id="30p-ST-Mz6"/>
                         <outlet property="googleMapView" destination="BXQ-0E-S1Z" id="oEF-t0-wcp"/>
                         <outlet property="labelMessage" destination="ujY-FS-Ltg" id="4Rk-pC-E5Y"/>
                     </connections>
@@ -93,7 +103,7 @@
         <scene sceneID="ouk-Ec-eRb">
             <objects>
                 <navigationController navigationBarHidden="YES" id="3PA-UM-qKO" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jfk-vx-caw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jfk-vx-caw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -823,7 +833,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKN-OX-2O1" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="30" width="375" height="467"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="eWF-Rb-brV">
+                                        <rect key="frame" x="177" y="223.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eWF-Rb-brV" firstAttribute="centerX" secondItem="PKN-OX-2O1" secondAttribute="centerX" id="5d6-sZ-odW"/>
+                                    <constraint firstItem="eWF-Rb-brV" firstAttribute="centerY" secondItem="PKN-OX-2O1" secondAttribute="centerY" id="817-ko-0mP"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="mOA-sO-keE" id="o7k-HJ-RJ0"/>
                                 </connections>
@@ -905,6 +924,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG3-Re-i3a">
+                                        <rect key="frame" x="275" y="37" width="38" height="38"/>
+                                        <state key="normal" image="call"/>
+                                        <connections>
+                                            <action selector="callAction:" destination="A56-P1-2eo" eventType="touchUpInside" id="4rA-FA-1ct"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFw-N1-Y5V">
+                                        <rect key="frame" x="325" y="37" width="39" height="39"/>
+                                        <state key="normal" image="navigate"/>
+                                        <connections>
+                                            <action selector="navigateAction:" destination="A56-P1-2eo" eventType="touchUpInside" id="7eg-KK-h5B"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -914,7 +947,9 @@
                                     <constraint firstItem="qe8-k9-SK2" firstAttribute="leading" secondItem="9M1-hS-foi" secondAttribute="trailing" constant="52" id="8ME-kN-6HR"/>
                                     <constraint firstItem="G11-hk-1OU" firstAttribute="centerY" secondItem="fYS-3R-df9" secondAttribute="centerY" id="ACT-Xg-FDZ"/>
                                     <constraint firstItem="fYS-3R-df9" firstAttribute="top" secondItem="qe8-k9-SK2" secondAttribute="bottom" constant="3" id="AnF-gt-QJ6"/>
+                                    <constraint firstItem="UFw-N1-Y5V" firstAttribute="leading" secondItem="oG3-Re-i3a" secondAttribute="trailing" constant="12" id="DFR-PL-wX9"/>
                                     <constraint firstItem="UOG-hN-sad" firstAttribute="leading" secondItem="Msl-YD-ISr" secondAttribute="leading" constant="23" id="FNW-Md-1xK"/>
+                                    <constraint firstAttribute="trailing" secondItem="UFw-N1-Y5V" secondAttribute="trailing" constant="11" id="FYa-XW-14U"/>
                                     <constraint firstItem="9M1-hS-foi" firstAttribute="centerY" secondItem="TVN-0l-VlS" secondAttribute="centerY" id="Fcc-1c-ICI"/>
                                     <constraint firstItem="I3Z-zz-sJ8" firstAttribute="leading" secondItem="Msl-YD-ISr" secondAttribute="leading" constant="10" id="IY9-hM-Hu7"/>
                                     <constraint firstItem="A7Q-hV-VDq" firstAttribute="top" secondItem="Msl-YD-ISr" secondAttribute="top" constant="10" id="IfQ-YV-h3f"/>
@@ -922,6 +957,7 @@
                                     <constraint firstAttribute="bottom" secondItem="TVN-0l-VlS" secondAttribute="bottom" constant="30" id="SiF-W9-j0b"/>
                                     <constraint firstItem="9M1-hS-foi" firstAttribute="leading" secondItem="Msl-YD-ISr" secondAttribute="leading" constant="10" id="T2j-fY-5v7"/>
                                     <constraint firstItem="Rpr-9t-ngh" firstAttribute="top" secondItem="Msl-YD-ISr" secondAttribute="top" constant="10" id="WSR-Qn-UTj"/>
+                                    <constraint firstItem="oG3-Re-i3a" firstAttribute="centerY" secondItem="UFw-N1-Y5V" secondAttribute="centerY" id="a0U-X0-KHE"/>
                                     <constraint firstItem="Rpr-9t-ngh" firstAttribute="leading" secondItem="Msl-YD-ISr" secondAttribute="leading" constant="10" id="dOQ-zg-kyq"/>
                                     <constraint firstItem="6sR-lw-JB4" firstAttribute="centerY" secondItem="6R7-y5-Hoe" secondAttribute="centerY" id="fny-DT-8cz"/>
                                     <constraint firstItem="6R7-y5-Hoe" firstAttribute="top" secondItem="UOG-hN-sad" secondAttribute="bottom" constant="3" id="g5W-tP-wn8"/>
@@ -929,6 +965,7 @@
                                     <constraint firstAttribute="trailing" secondItem="A7Q-hV-VDq" secondAttribute="trailing" constant="10" id="iSa-2B-Cdt"/>
                                     <constraint firstItem="6R7-y5-Hoe" firstAttribute="leading" secondItem="Msl-YD-ISr" secondAttribute="leading" constant="50" id="j0r-9u-Xty"/>
                                     <constraint firstItem="nNA-OC-LTD" firstAttribute="top" secondItem="Msl-YD-ISr" secondAttribute="top" constant="10" id="kdE-Fe-bh2"/>
+                                    <constraint firstItem="TVN-0l-VlS" firstAttribute="top" secondItem="UFw-N1-Y5V" secondAttribute="bottom" constant="16" id="pd3-Ho-Smp"/>
                                     <constraint firstItem="I3Z-zz-sJ8" firstAttribute="top" secondItem="Rpr-9t-ngh" secondAttribute="bottom" constant="10" id="pl4-58-Wkj"/>
                                     <constraint firstItem="fYS-3R-df9" firstAttribute="centerY" secondItem="TVN-0l-VlS" secondAttribute="centerY" id="uN5-pO-8oU"/>
                                     <constraint firstItem="6sR-lw-JB4" firstAttribute="leading" secondItem="6R7-y5-Hoe" secondAttribute="trailing" constant="25" id="wUR-Vc-KNu"/>
@@ -983,6 +1020,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mC1-AF-fTT"/>
                     <connections>
+                        <outlet property="activity" destination="eWF-Rb-brV" id="yLD-Xh-GvF"/>
                         <outlet property="bikeAvailable" destination="6R7-y5-Hoe" id="2JI-xA-NmM"/>
                         <outlet property="carAvailable" destination="fYS-3R-df9" id="TY4-8p-zfC"/>
                         <outlet property="googleMapView" destination="PKN-OX-2O1" id="04c-Md-Hvg"/>
@@ -1107,11 +1145,13 @@
         <image name="back" width="24" height="24"/>
         <image name="bike" width="160" height="48"/>
         <image name="bookin_details" width="375" height="667"/>
+        <image name="call" width="38" height="38"/>
         <image name="car" width="160" height="48"/>
         <image name="check_box" width="37" height="34"/>
         <image name="check_box_empty" width="37" height="34"/>
         <image name="grey_star" width="33" height="32"/>
         <image name="login" width="375" height="667"/>
+        <image name="navigate" width="39" height="39"/>
         <image name="payment" width="375" height="667"/>
         <image name="star_yellow" width="33" height="32"/>
         <image name="thumb" width="129" height="129"/>

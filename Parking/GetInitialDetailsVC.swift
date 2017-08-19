@@ -23,6 +23,12 @@ class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewLocation.isHidden = true
+        
+        let lat = array_Locations[0]["lat"] as? Double
+        let long = array_Locations[0]["long"] as? Double
+        
+        let location = CLLocation(latitude: lat!, longitude: long!)
+        appDelegate?.selectedLocation = location
 
         // Do any additional setup after loading the view, typically from a nib.
     }
