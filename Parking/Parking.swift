@@ -17,7 +17,9 @@ class Parking {
     var type: String?
     var userType:String?
     var numberOfParkings: Int?
-    var available: Int?
+    var carAvailable: Int?
+    var bikeAvailable: Int?
+
     var isCar: Bool?
     var isBike: Bool?
     var price: Int?
@@ -36,7 +38,9 @@ class Parking {
         self.userType = dictionary["user"] as? String
 
         self.numberOfParkings = dictionary["total"] as? Int
-        self.available = dictionary["available"] as? Int
+        self.carAvailable = dictionary["car_available"] as? Int
+        self.bikeAvailable = dictionary["bike_available"] as? Int
+
         self.isCar = dictionary["cars"] as? Bool
         self.isBike = dictionary["bike"] as? Bool
         self.price = dictionary["price"] as? Int

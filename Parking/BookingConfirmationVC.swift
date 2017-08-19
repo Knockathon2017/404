@@ -27,7 +27,7 @@ class BookingConfirmationVC: UIViewController {
     
     
     override func viewDidLoad() {
-        vehicleType = 0
+        
         
         if UserDefaults.standard.object(forKey: "startTime") == nil {
             UserDefaults.standard.set(Date().timeIntervalSinceNow, forKey: "startTime")

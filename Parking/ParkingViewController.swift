@@ -38,6 +38,8 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     
     
     
+    @IBOutlet weak var carAvailable: UILabel!
+    @IBOutlet weak var bikeAvailable: UILabel!
     var isCar = true
     @IBOutlet weak var label_Price: UILabel!
     @IBOutlet weak var label_Rating: UILabel!
@@ -135,6 +137,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
                vc.address = label_Address.text
                 if isCar{
                     vc.vehicleType = 0
+                    
                 }
                 else{
                     vc.vehicleType = 1
@@ -148,7 +151,10 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         
         label_Address.text = parking.address
         label_Rating.text =  String(parking.rating!)
-        label_Price.text = "\(String(parking.price!)) rs/Per Hour"
+        label_Price.text =   "\(String(parking.price!)) rs/Per Hour"
+        carAvailable.text =  String(parking.carAvailable!)
+        bikeAvailable.text = String(parking.bikeAvailable!)
+
         
         let destiny = CLLocation(latitude: parking.latitude!, longitude: parking.longitude!)
         let distance = (self.currentLocation?.distance(from: destiny))!
