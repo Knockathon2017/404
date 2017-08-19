@@ -44,6 +44,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var label_Price: UILabel!
     @IBOutlet weak var label_Rating: UILabel!
     @IBOutlet weak var label_Address: UILabel!
+    @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet weak var label_Distance: UILabel!
     
     var locationManager = CLLocationManager()
@@ -60,6 +61,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     let kCameraLongitude = 77.37371218
     
     var arrayParkings = [Parking]()
+    var selectedLocation: CLLocation!
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
@@ -70,6 +72,18 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         self.getCurrentLocation()
         self.addMultipleMarkers()
         
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        activity.isHidden = false
+        
+        UIView.animate(withDuration: 1, delay: 5.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: .allowUserInteraction, animations: {
+            self.activity.isHidden = true
+        }, completion: { (_) in
+            // complete
+        })
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -148,6 +162,33 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         }
     }
     
+    @IBAction func navigateAction(_ sender: Any) {
+        
+        openRoute((appDelegate?.selectedLocation)!, destination: self.selectedLocation)
+    }
+    
+    func openRoute(_ source: CLLocation, destination: CLLocation) {
+        
+        let query = "?saddr=\(source.coordinate.latitude),\(source.coordinate.longitude)&daddr=\(destination.coordinate.latitude),\(destination.coordinate.longitude))" + "&directionsmode=driving"
+        let path = "http://maps.apple.com/" + query
+        if let url = URL(string: path) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } 
+        
+    }
+    
+    @IBAction func callAction(_ sender: Any) {
+        
+        if let url = URL(string: "tel://+918181924966"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+        
+    }
+    
     func reloadView(_ parking: Parking){
         
         label_Address.text = parking.address
@@ -158,6 +199,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
 
         
         let destiny = CLLocation(latitude: parking.latitude!, longitude: parking.longitude!)
+        self.selectedLocation = destiny
         let distance = (self.currentLocation?.distance(from: destiny))!
         if distance > 1000{
             

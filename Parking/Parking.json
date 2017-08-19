@@ -42,7 +42,7 @@
                                   "address": "520, Swarn Jayanti Park Road, Niti Khand 2, Indirapuram, Ghaziabad"
                                   },{
                                   "id": "12344",
-                                  "type": "household",
+                                  "type": "office",
                                   "user": "others",
                                   "total": 10,
                                   "car_available": 97,
@@ -78,15 +78,36 @@
                    "lat": 28.5747441,
                    "lng": 77.3538376
                    },
-                   "address": "Noida City Center"
-                   },{
-                   "id": "12376",
+                   "address": "Sector 58, Noida"
+                   },
+                   {
+                   "id": "1231",
                    "type": "household",
+                   "user": "all",
+                   "parking_name": "Ajay Ahuja House Parking",
+                   "rating": 2.5,
+                   "total": 3,
+                   "car_available": 2,
+                   "bike_available": 3,
+                   "time": "00:00 to 12:00 PM",
+                   "status": "closed",
+                   "cars": true,
+                   "bike": true,
+                   "price": 75,
+                   "location": {
+                   "lat": 28.624223,
+                   "lng": 77.369328
+                   },
+                   "address": "Block A, Sector 62, Noida, Uttar Pradesh, India"
+                   },
+                   {
+                   "id": "12344",
+                   "type": "all",
                    "user": "others",
-                   "total": 100,
-                   "car_available": 21,
-                   "bike_available": 34,
-                   "parking_name": "Shivalik Marg Parking",
+                   "total": 10,
+                   "car_available": 120,
+                   "bike_available": 50,
+                   "parking_name": "Noida Nokia Red Light Parking",
                    "time": "00:00 to 12:00",
                    "price": 50,
                    "status": "open",
@@ -116,7 +137,7 @@
                    "lat": 28.573167,
                    "lng": 77.356878
                    },
-                   "address": "72, Jain Rd, Sector 39A, Sector 39, Noida, Uttar Pradesh 201303"
+                   "address": "B 30, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309"
                    }
             ]
 

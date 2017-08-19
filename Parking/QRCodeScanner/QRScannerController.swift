@@ -115,7 +115,6 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No QR/barcode is detected"
-            isDetected = false
             return
         }
         
