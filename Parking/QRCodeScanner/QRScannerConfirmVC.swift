@@ -160,7 +160,7 @@ class QRScannerConfirmVC: UIViewController, AVCaptureMetadataOutputObjectsDelega
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
-            if metadataObj.stringValue != nil  && isDetected != true {
+            if metadataObj.stringValue == "parkingZone1"  && isDetected != true {
                 isDetected = true
                 self.performSegue(withIdentifier: "PaymentVC", sender: self)
             }
