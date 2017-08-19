@@ -10,4 +10,7 @@ import UIKit
 
 class IntroScreenVC: UIViewController {
     
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
