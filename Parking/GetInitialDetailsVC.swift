@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 
+
 class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate{
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
     var array_Locations = [["name":"Sector 62","lat":28.6228354,"long":77.3490503],["name":"Noida City Center","lat":28.5747441,"long":77.3538376]]
     
     @IBOutlet weak var tableViewLocation: UITableView!
@@ -25,12 +28,12 @@ class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     @IBAction func showLocation(_ sender: Any) {
-        self.performSegue(withIdentifier: "ShowRisk", sender: sender)
+        self.performSegue(withIdentifier: "FindParking", sender: sender)
         
     }
     @IBAction func useCurrentLocation(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "ShowRisk", sender: sender)
+        self.performSegue(withIdentifier: "FindParking", sender: sender)
 
     }
     
@@ -47,6 +50,13 @@ class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        let lat = array_Locations[indexPath.row]["lat"] as? Double
+        let long = array_Locations[indexPath.row]["long"] as? Double
+
+        let location = CLLocation(latitude: lat!, longitude: long!)
+        appDelegate?.selectedLocation = location
+        
         
         textFieldLocation.text = array_Locations[indexPath.row]["name"] as? String
         tableViewLocation.deselectRow(at: indexPath, animated: true)
