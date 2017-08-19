@@ -27,6 +27,8 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Your current location will be displayed on the map and used for directions and the shortest path to reach all claims.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>This app requires to access your photo library to show image on profile and send via chat</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your current location will be displayed on the map and used for directions and the shortest path to reach all claims.</string>
 	<key>UILaunchStoryboardName</key>

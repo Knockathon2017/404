@@ -80,71 +80,13 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
             
             
             
-            self.initOverlays(CLLocationCoordinate2DMake( 42.11, -9.37))
+            self.initOverlays(CLLocationCoordinate2DMake( 41.30, -10.20))
             
             //self.initOverlays(userLocation.coordinate)
             
         }
         
-        
-        
-        //getDirectionsUsingGoogle()
-        
     }
-    
-    
-    
-    
-    
-    fileprivate func getDirectionsUsingGoogle(){
-        
-        let path = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=places&keyword=cruise&key=AIzaSyDcbYjHrMlF7f7KHNCV0XaKZZj_B3CZqRY"
-        
-        
-        
-        performOperationForURL(path as NSString, index: 0)
-        
-    }
-    
-    
-    
-    fileprivate func performOperationForURL(_ urlString:NSString, index: Int){
-        
-        let urlEncoded = urlString.replacingOccurrences(of: " ", with: "%20")
-        
-        let url:URL? = URL(string:urlEncoded)
-        
-        let request:URLRequest = URLRequest(url:url!)
-        
-        let queue:OperationQueue = OperationQueue()
-        
-        
-        
-        NSURLConnection.sendAsynchronousRequest(request,queue:queue,completionHandler:{response,data,error in
-            
-            if error != nil {
-                
-                print(error!.localizedDescription)
-                
-                
-                
-            }
-                
-            else{
-                
-                let jsonResult: NSDictionary = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSDictionary
-                
-                print(jsonResult)
-                
-            }
-            
-        }
-            
-        )
-        
-    }
-    
-    
     
     //Start updating location manager
     
@@ -268,7 +210,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
             
             K1polygon.strokeWidth = 0.5
             
-            K1polygon.isTappable = true
+            K1polygon.isTappable = false
             
             K1polygon.title = polygon.address
             
