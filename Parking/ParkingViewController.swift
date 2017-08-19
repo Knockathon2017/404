@@ -135,7 +135,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
             if let vc = segue.destination as? QRScannerController{
                 
                vc.address = label_Address.text
-                if isCar{
+                if isCar {
                     vc.vehicleType = 0
                     
                 }

@@ -20,7 +20,7 @@ class BookingConfirmationVC: UIViewController {
     @IBOutlet var chargeLbl: UILabel!
     @IBOutlet var cleaningLbl: UILabel!
     
-    var vehicleType: Int!
+    var vehicleType: Int! 
     var address: String! = "Dummy Address"
     var cleaningAvailable: Bool!
     var charge: Int! = 20
@@ -31,6 +31,8 @@ class BookingConfirmationVC: UIViewController {
         if UserDefaults.standard.object(forKey: "startTime") == nil {
             UserDefaults.standard.set(Date().timeIntervalSinceNow, forKey: "startTime")
         }
+        
+        cleaningAvailable = false
         
         vehicleCarNumberLbl.text = "UP 32 BJ 2345"
         if vehicleType == 0 {

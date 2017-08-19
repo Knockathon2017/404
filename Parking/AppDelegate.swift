@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         readJson()
         
         if UserDefaults.standard.object(forKey: "startTime") != nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "BookingIdentifier")
-            window?.rootViewController = vc
+            //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            //let vc = storyboard.instantiateViewController(withIdentifier: "BookingIdentifier")
+            //window?.rootViewController = vc
         }
         
         return true
