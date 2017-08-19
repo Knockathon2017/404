@@ -45,9 +45,9 @@
                                   "type": "household",
                                   "user": "others",
                                   "total": 10,
-                                  "car_available": 41,
-                                  "bike_available": 34,
-                                  "parking_name": "Parking",
+                                  "car_available": 97,
+                                  "bike_available": 64,
+                                  "parking_name": "Ericsson India Noida",
                                   "time": "00:00 to 12:00",
                                   "price": 50,
                                   "status": "open",
@@ -55,10 +55,10 @@
                                   "cars": true,
                                   "bike": true,
                                   "location": {
-                                  "lat": 28.653257,
-                                  "lng": 77.370948
+                                  "lat": 28.6295306,
+                                  "lng": 77.368589
                                   },
-                                  "address": "Sector 58, Noida"
+                                  "address": "Ericsson India Global Services Pvt Ltd"
                                   },
                     {
                    "id": "12376",
