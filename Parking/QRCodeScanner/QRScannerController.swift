@@ -93,7 +93,7 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     
     @IBAction func backAction(_ sender: Any) {
         
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.popViewController(animated: true)
         
     }
     

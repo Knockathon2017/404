@@ -13,8 +13,12 @@ class PaymentVC: UIViewController {
     @IBOutlet var checkBoxWallet: UIButton!
     @IBOutlet var checkBoxPaytm: UIButton!
     
+    @IBOutlet weak var totalAmount: UILabel!
+    var amount: Int!
     override func viewDidLoad() {
         checkBoxWallet.isSelected = true
+        totalAmount.text = String(amount)
+        
     }
     
     @IBAction func confirmAction(_ sender: Any) {

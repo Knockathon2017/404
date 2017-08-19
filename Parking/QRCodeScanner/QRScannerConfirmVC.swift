@@ -33,21 +33,48 @@ class QRScannerConfirmVC: UIViewController, AVCaptureMetadataOutputObjectsDelega
                         AVMetadataObjectTypePDF417Code,
                         AVMetadataObjectTypeQRCode]
     
-     func getTravelTimeString() -> Int {
+     func getTravelTimeString() -> (Int,Int) {
         
         let timeInSeconds = UserDefaults.standard.object(forKey: "startTime") as! Int
             UserDefaults.standard.removeObject(forKey: "startTime")
            
-            let (h, _, _) = (timeInSeconds / 3600, (timeInSeconds % 3600) / 60, (timeInSeconds % 3600) % 60)
-            return h
+            let (h, m, _) = (timeInSeconds / 3600, (timeInSeconds % 3600) / 60, (timeInSeconds % 3600) % 60)
+            return (h,m)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "PaymentVC" {
+            
+            if let vc = segue.destination as? PaymentVC{
+                
+                vc.amount = amount
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.amountLbl.text = String(getTravelTimeString() * amount)
-        self.timeLbl.text = String(getTravelTimeString())
+        
+        let (hour, minute) = getTravelTimeString()
+        if hour > 0 && minute > 0{
+            
+            self.timeLbl.text = String("\(hour)hr\(minute) min")
+            self.amountLbl.text = String(hour * amount)
+        }
+        else if minute > 0{
+            
+            self.timeLbl.text = String("\(minute) min")
+            self.amountLbl.text = String(amount)
+        }
+        else{
+            self.timeLbl.text = String("2 min")
+            self.amountLbl.text = String(amount)
+        }
+        
+        
+        
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
