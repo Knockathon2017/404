@@ -31,7 +31,7 @@ class CustomClusterItem: NSObject, GMUClusterItem {
         self.parking = parking
     }
     
-    }
+}
 
 
 class ParkingViewController: UIViewController,GMSMapViewDelegate {
@@ -57,7 +57,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     let kCameraLongitude = 77.37371218
     
     var arrayParkings = [Parking]()
-    
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,7 +171,7 @@ extension ParkingViewController: GMUClusterManagerDelegate{
         }
         
     }
-
+    
     func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) -> Bool {
         let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
                                                  zoom: googleMapView.camera.zoom + 1)
@@ -200,8 +200,8 @@ extension ParkingViewController: GMUClusterManagerDelegate{
     /// cluster manager.
     func generateClusterItems() {
         //let extent = 0.2
-        for (index, parking)  in arrayParkings.enumerated() {
-            let parking = arrayParkings[index]
+        for (_,parking) in (appDelegate?.arrayParkings.enumerated())! {
+            // let parking = arrayParkings[index]
             
             let lat = parking.latitude
             let long = parking.longitude
@@ -245,17 +245,19 @@ extension ParkingViewController: CLLocationManagerDelegate {
         let location: CLLocation = locations.last!
         print("Location: \(location)")
         self.currentLocation = location
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
+        //let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+        //                                   longitude: location.coordinate.longitude,
+        //                                   zoom: zoomLevel)
+        let camera = GMSCameraPosition.camera(withLatitude: kCameraLatitude,
+                                              longitude: kCameraLongitude,
                                               zoom: zoomLevel)
-        
         googleMapView.camera = camera
         //        // Creates a marker in the center of the map.
         
-        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        marker.title = "Current Location"
-        //marker.snippet = "Australia"
-        
+        //                    marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        //                    marker.title = "Current Location"
+        //                    marker.icon = UIImage(named: "all")
+        reloadView((appDelegate?.arrayParkings[0])!)
     }
     
     // Handle authorization for the location manager.
