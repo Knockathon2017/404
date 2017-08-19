@@ -41,14 +41,14 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     let kCameraLongitude = 77.37371218
     
     var arrayParkings = [Parking]()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       marker.map = googleMapView
+        marker.map = googleMapView
         googleMapView.isMyLocationEnabled = true
-       self.getCurrentLocation()
+        self.getCurrentLocation()
         // Set up the cluster manager with default icon generator and renderer.
         let iconGenerator = GMUDefaultClusterIconGenerator()
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
@@ -127,9 +127,9 @@ extension ParkingViewController: GMUClusterManagerDelegate{
     
     /// Randomly generates cluster items within some extent of the camera and adds them to the
     /// cluster manager.
-     func generateClusterItems() {
+    func generateClusterItems() {
         //let extent = 0.2
-        for index in 0...arrayParkings.count {
+        for (index, parking)  in arrayParkings.enumerated() {
             let parking = arrayParkings[index]
             
             let lat = parking.latitude
@@ -149,10 +149,10 @@ extension ParkingViewController: GMUClusterManagerDelegate{
             
             let item = POIItem(position: CLLocationCoordinate2DMake(lat!, long!), name: name!,imageName: imageName)
             
-//            let lat = kCameraLatitude + extent * randomScale()
-//            let lng = kCameraLongitude + extent * randomScale()
-//            let name = "Item \(index)"
-//            let item = POIItem(position: CLLocationCoordinate2DMake(lat, lng), name: name)
+            //            let lat = kCameraLatitude + extent * randomScale()
+            //            let lng = kCameraLongitude + extent * randomScale()
+            //            let name = "Item \(index)"
+            //            let item = POIItem(position: CLLocationCoordinate2DMake(lat, lng), name: name)
             clusterManager.add(item)
         }
     }
@@ -164,50 +164,50 @@ extension ParkingViewController: GMUClusterManagerDelegate{
 }
 
 
-    //MARK: CLLocationManager Delegate methods
-    
+//MARK: CLLocationManager Delegate methods
+
 extension ParkingViewController: CLLocationManagerDelegate {
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
+        self.currentLocation = location
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                              longitude: location.coordinate.longitude,
+                                              zoom: zoomLevel)
         
-        // Handle incoming location events.
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            let location: CLLocation = locations.last!
-            print("Location: \(location)")
-            self.currentLocation = location
-            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                                  longitude: location.coordinate.longitude,
-                                                  zoom: zoomLevel)
-            
-            googleMapView.camera = camera
-            //        // Creates a marker in the center of the map.
-            
-                    marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                    marker.title = "Current Location"
-                    //marker.snippet = "Australia"
-            
-        }
+        googleMapView.camera = camera
+        //        // Creates a marker in the center of the map.
         
-        // Handle authorization for the location manager.
-        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-            switch status {
-            case .restricted:
-                print("Location access was restricted.")
-            case .denied:
-                print("User denied access to location.")
-                // Display the map using the default location.
-                googleMapView.isHidden = false
-            case .notDetermined:
-                print("Location status not determined.")
-            case .authorizedAlways: fallthrough
-            case .authorizedWhenInUse:
-                print("Location status is OK.")
-            }
-        }
+        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        marker.title = "Current Location"
+        //marker.snippet = "Australia"
         
-        // Handle location manager errors.
-        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-            locationManager.stopUpdatingLocation()
-            print("Error: \(error)")
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+            // Display the map using the default location.
+            googleMapView.isHidden = false
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
         }
     }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+}
 
 

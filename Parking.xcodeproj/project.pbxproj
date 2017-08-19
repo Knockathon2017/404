@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F4DC78A1F479AB30095B5CB /* BookingConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DC7891F479AB30095B5CB /* BookingConfirmationVC.swift */; };
+		4F4DC78C1F479F310095B5CB /* QRScannerConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DC78B1F479F310095B5CB /* QRScannerConfirmVC.swift */; };
+		4F4DC78E1F479F960095B5CB /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DC78D1F479F960095B5CB /* PaymentVC.swift */; };
+		4F4DC7901F47A8390095B5CB /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DC78F1F47A8390095B5CB /* RatingVC.swift */; };
+		4F6BE2791F4779B700B76C03 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BE2771F4779B700B76C03 /* QRScannerController.swift */; };
+		4F6DBAA81F47BCCC0032BC30 /* RiskFactorMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6DBAA71F47BCCC0032BC30 /* RiskFactorMapVC.swift */; };
 		AF36D0F2B6B7F8BD524F7395 /* libPods-Parking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CA79B59EA84B2C387B006B /* libPods-Parking.a */; };
 		F411CCA11F4773A3007325F9 /* GetInitialDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411CC991F4773A3007325F9 /* GetInitialDetailsVC.swift */; };
 		F411CCA21F4773A3007325F9 /* IntroScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411CC9A1F4773A3007325F9 /* IntroScreenVC.swift */; };
 		F411CCA31F4773A3007325F9 /* Parking.json in Resources */ = {isa = PBXBuildFile; fileRef = F411CC9C1F4773A3007325F9 /* Parking.json */; };
 		F411CCA41F4773A3007325F9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411CC9D1F4773A3007325F9 /* Parking.swift */; };
-		F411CCA51F4773A3007325F9 /* RiskFactorMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411CC9E1F4773A3007325F9 /* RiskFactorMapVC.swift */; };
 		F411CCA61F4773A3007325F9 /* RiskPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411CC9F1F4773A3007325F9 /* RiskPolygon.swift */; };
 		F411CCA71F4773A3007325F9 /* riskZone.json in Resources */ = {isa = PBXBuildFile; fileRef = F411CCA01F4773A3007325F9 /* riskZone.json */; };
 		F411CCAA1F4773F4007325F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F411CCA81F4773F4007325F9 /* Main.storyboard */; };
@@ -24,13 +29,18 @@
 
 /* Begin PBXFileReference section */
 		2030628E957C3524EB98A8E8 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
+		4F4DC7891F479AB30095B5CB /* BookingConfirmationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingConfirmationVC.swift; sourceTree = "<group>"; };
+		4F4DC78B1F479F310095B5CB /* QRScannerConfirmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerConfirmVC.swift; sourceTree = "<group>"; };
+		4F4DC78D1F479F960095B5CB /* PaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		4F4DC78F1F47A8390095B5CB /* RatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
+		4F6BE2771F4779B700B76C03 /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
+		4F6DBAA71F47BCCC0032BC30 /* RiskFactorMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskFactorMapVC.swift; sourceTree = "<group>"; };
 		F3CA79B59EA84B2C387B006B /* libPods-Parking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F411CC991F4773A3007325F9 /* GetInitialDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInitialDetailsVC.swift; sourceTree = "<group>"; };
 		F411CC9A1F4773A3007325F9 /* IntroScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroScreenVC.swift; sourceTree = "<group>"; };
 		F411CC9B1F4773A3007325F9 /* Parking-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Parking-Bridging-Header.h"; sourceTree = "<group>"; };
 		F411CC9C1F4773A3007325F9 /* Parking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Parking.json; sourceTree = "<group>"; };
 		F411CC9D1F4773A3007325F9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
-		F411CC9E1F4773A3007325F9 /* RiskFactorMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskFactorMapVC.swift; sourceTree = "<group>"; };
 		F411CC9F1F4773A3007325F9 /* RiskPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskPolygon.swift; sourceTree = "<group>"; };
 		F411CCA01F4773A3007325F9 /* riskZone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = riskZone.json; sourceTree = "<group>"; };
 		F411CCA91F4773F4007325F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +73,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4F6BE2751F4779B700B76C03 /* QRCodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				4F4DC78B1F479F310095B5CB /* QRScannerConfirmVC.swift */,
+				4F6BE2771F4779B700B76C03 /* QRScannerController.swift */,
+			);
+			path = QRCodeScanner;
+			sourceTree = "<group>";
+		};
 		85861FE746BCA4B25B6FEA6D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,13 +112,17 @@
 		F45B0E881F4710310008C5F1 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
+				4F6DBAA71F47BCCC0032BC30 /* RiskFactorMapVC.swift */,
+				4F6BE2751F4779B700B76C03 /* QRCodeScanner */,
 				F45B0E891F4710310008C5F1 /* AppDelegate.swift */,
 				F411CC991F4773A3007325F9 /* GetInitialDetailsVC.swift */,
+				4F4DC78D1F479F960095B5CB /* PaymentVC.swift */,
+				4F4DC78F1F47A8390095B5CB /* RatingVC.swift */,
 				F411CC9A1F4773A3007325F9 /* IntroScreenVC.swift */,
+				4F4DC7891F479AB30095B5CB /* BookingConfirmationVC.swift */,
 				F411CC9B1F4773A3007325F9 /* Parking-Bridging-Header.h */,
 				F411CC9C1F4773A3007325F9 /* Parking.json */,
 				F411CC9D1F4773A3007325F9 /* Parking.swift */,
-				F411CC9E1F4773A3007325F9 /* RiskFactorMapVC.swift */,
 				F411CC9F1F4773A3007325F9 /* RiskPolygon.swift */,
 				F411CCA01F4773A3007325F9 /* riskZone.json */,
 				F45B0E8B1F4710310008C5F1 /* ViewController.swift */,
@@ -238,9 +261,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F45B0E8C1F4710310008C5F1 /* ViewController.swift in Sources */,
-				F411CCA51F4773A3007325F9 /* RiskFactorMapVC.swift in Sources */,
 				F411CCA61F4773A3007325F9 /* RiskPolygon.swift in Sources */,
 				F411CCA11F4773A3007325F9 /* GetInitialDetailsVC.swift in Sources */,
+				4F6BE2791F4779B700B76C03 /* QRScannerController.swift in Sources */,
+				4F4DC78C1F479F310095B5CB /* QRScannerConfirmVC.swift in Sources */,
+				4F4DC78E1F479F960095B5CB /* PaymentVC.swift in Sources */,
+				4F4DC7901F47A8390095B5CB /* RatingVC.swift in Sources */,
+				4F6DBAA81F47BCCC0032BC30 /* RiskFactorMapVC.swift in Sources */,
+				4F4DC78A1F479AB30095B5CB /* BookingConfirmationVC.swift in Sources */,
 				F411CCA41F4773A3007325F9 /* Parking.swift in Sources */,
 				F45B0E8A1F4710310008C5F1 /* AppDelegate.swift in Sources */,
 				F411CCA21F4773A3007325F9 /* IntroScreenVC.swift in Sources */,
