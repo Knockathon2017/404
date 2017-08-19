@@ -147,6 +147,34 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         }
     }
     
+    @IBAction func navigateAction(_ sender: Any) {
+        
+        
+        
+    }
+    
+    func openRoute(_ source: CLLocation, destination: CLLocation) {
+        
+        let query = "?saddr=\(source.coordinate.latitude),\(source.coordinate.longitude)&daddr=\(destination.coordinate.latitude),\(destination.coordinate.longitude))" + "&directionsmode=driving"
+        let path = "http://maps.apple.com/" + query
+        if let url = URL(string: path) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } 
+        
+    }
+    
+    @IBAction func callAction(_ sender: Any) {
+        
+        if let url = URL(string: "tel://+918181924966"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+        
+    }
+    
     func reloadView(_ parking: Parking){
         
         label_Address.text = parking.address

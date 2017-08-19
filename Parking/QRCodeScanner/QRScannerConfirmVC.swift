@@ -148,7 +148,6 @@ class QRScannerConfirmVC: UIViewController, AVCaptureMetadataOutputObjectsDelega
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            isDetected = false
             return
         }
         

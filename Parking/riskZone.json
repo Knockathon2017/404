@@ -3,7 +3,7 @@
              "_id": "1231",
              "lat": 28.613341,
              "lng": 77.374649,
-             "riskZone": 1,
+             "riskfactor": 1,
              "type": "stolen",
              "address": "Sector 66, Mamura"
              },
@@ -11,23 +11,23 @@
              "_id": "12322",
              "lat": 28.625467,
              "lng": 77.376264,
-             "riskZone": 1,
+             "riskfactor": 1,
              "type": "stolen",
              "address": "H Block, Sector 63, Noida, Uttar Pradesh 201301"
              },
              {
              "_id": "12323",
-             "lat": 28.625267,
-             "lng": 77.373419,
-             "riskZone": 1,
+             "lat": 28.623428,
+             "lng": 77.370815,
+             "riskfactor": 1,
              "type": "stolen",
-             "address": "Pinnacle Tower, Industrial Area, Sector 62, Noida, Uttar Pradesh 201307"
+             "address": "Block B, Industrial Area, Sector 62, Noida, Uttar Pradesh 201307"
              },
              {
              "_id": "12324",
              "lat": 28.632082,
              "lng": 77.368126,
-             "riskZone": 3,
+             "riskfactor": 3,
              "type": "Highway",
              "address": "AH2, H Block, Sector 63, Noida, Uttar Pradesh 201307"
              },
@@ -35,7 +35,7 @@
              "_id": "12312",
              "lat": 28.627120,
              "lng": 77.373578,
-             "riskZone": 2,
+             "riskfactor": 2,
              "type": "No parking zone",
              "address": "Noida sector 62(Corenthum)"
              },
@@ -43,7 +43,7 @@
              "_id": "12312",
              "lat": 28.586605,
              "lng": 77.350478,
-             "riskZone": 2,
+             "riskfactor": 2,
              "type": "temple",
              "address": "ISKCON Noida, A-5, Opposite NTPC office"
              },
@@ -51,7 +51,7 @@
              "_id": "123122",
              "lat": 28.564873,
              "lng": 77.315298,
-             "riskZone": 3,
+             "riskfactor": 3,
              "type": "highway",
              "address": "Noida-Greater Noida Expy, Gautam Buddha Park"
              },
@@ -59,10 +59,67 @@
              "_id": "12312234",
              "lat": 28.569687,
              "lng": 77.341852,
-             "riskZone": 3,
+             "riskfactor": 3,
              "type": "monumental area",
              "address": "Shaheed Smarak Marg Road"
+             },
+             {
+             "_id": "123123",
+             "lat": 28.621351,
+             "lng": 77.362971,
+             "riskfactor": 1,
+             "type": "stolen",
+             "address": "GH-02, Block B, Industrial Area"
+             },
+             {
+             "_id": "123124",
+             "lat": 28.621858,
+             "lng": 77.369087,
+             "riskfactor": 1,
+             "type": "stolen",
+             "address": "Oshy Marg, Rasoolpur Nawada, Industrial Area"
+             },
+             {
+             "_id": "1231245",
+             "lat": 28.611124,
+             "lng": 77.363883,
+             "riskfactor": 3,
+             "type": "temple",
+             "address": "Noida Ayyappa Seva Samiti, C Block, Phase 2"
+             },
+             {
+             "_id": "12312456",
+             "lat": 28.615668,
+             "lng": 77.363571,
+             "riskfactor": 2,
+             "type": "No parking zone",
+             "address": "C-56/1, BHA Millenium Rd, C Block, Industrial Area"
+             },
+             {
+             "_id": "1231249",
+             "lat": 28.618668,
+             "lng": 77.360976,
+             "riskfactor": 2,
+             "type": "No parking zone",
+             "address": "B 31, Industrial Area, Sector 62"
+             },
+             {
+             "_id": "1231240",
+             "lat": 28.618987,
+             "lng": 77.363116,
+             "riskfactor": 2,
+             "type": "No parking zone",
+             "address": "B 29, Industrial Area, Sector 62, Noida"
+             },
+             {
+             "_id": "1231240",
+             "lat": 28.620505,
+             "lng": 77.362565,
+             "riskfactor": 2,
+             "type": "No parking zone",
+             "address": "A 19, Industrial Area, Sector 62"
              }
              ]
+    
     
 }

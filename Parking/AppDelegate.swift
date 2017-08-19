@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         coordinateArray.append(CLLocationCoordinate2DMake(lat!, long!))
                         coordinateArray.append(CLLocationCoordinate2DMake(lat! - 0.30 , long! - 0.50))
                         coordinateArray.append(CLLocationCoordinate2DMake(lat! - 0.30, long! + 1.0))
-                        let riskZone = polygon["riskZone"] as? Int
+                        let riskZone = polygon["riskfactor"] as? Int
                         let address = polygon["address"] as? String
                         let type = polygon["type"] as? String
                         let riskPolygon = RiskPolygon(coordinatesArray: coordinateArray, address: address!, type: type!, riskZone: riskZone!)

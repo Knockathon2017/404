@@ -1,65 +1,144 @@
 {
     "parkingArea":[
-                                  {
-                                  "id": "1231",
-                                  "type": "household",
-                                  "user": "all",
-                                  "parking_name": "Ajay Ahuja",
-                                  "rating": 2.5,
-                                  "total": 3,
-                                  "car_available": 67,
-                                  "bike_available": 45,
-                                  "time": "00:00 to 12:00 PM",
-                                  "status": "closed",
-                                  "cars": true,
-                                  "bike": true,
-                                  "price": 75,
-                                  "location": {
-                                  "lat": 28.6460708,
-                                  "lng": 77.334491
-                                  },
-                                  "address": "Sector 3, Vaishali, Ghaziabad"
-                                  },
+                   {
+                   "id": "1233",
+                   "type": "office",
+                   "user": "others",
+                   "total": 10,
+                   "car_available": 100,
+                   "bike_available": 40,
+                   "rating": 4.1,
+                   "time": "00:00 to 12:00 PM",
+                   "status": "closed",
+                   "parking_name": "Corenthum Parking",
+                   "price": 30,
+                   "cars": true,
+                   "bike": false,
+                   "location": {
+                   "lat": 28.626934,
+                   "lng": 77.375250
+                   },
+                   "address": "Corenthum Noida 62, H Block, Sector 62, Noida, Uttar Pradesh 201301, India"
+                   },{
+                   "id": "1231",
+                   "type": "household",
+                   "user": "all",
+                   "parking_name": "Ajay Ahuja",
+                   "rating": 2.5,
+                   "total": 3,
+                   "car_available": 67,
+                   "bike_available": 45,
+                   "time": "00:00 to 12:00 PM",
+                   "status": "closed",
+                   "cars": true,
+                   "bike": true,
+                   "price": 75,
+                   "location": {
+                   "lat": 28.6460708,
+                   "lng": 77.334491
+                   },
+                   "address": "Sector 3, Vaishali, Ghaziabad"
+                   },
                    
-                                  {
-                                  "id": "1233",
-                                  "type": "office",
-                                  "user": "others",
-                                  "total": 10,
-                                  "car_available": 29,
-                                  "bike_available": 13,
-                                  "rating": 4.1,
-                                  "time": "00:00 to 12:00 PM",
-                                  "status": "closed",
-                                  "parking_name": "R Systems Parking",
-                                  "price": 30,
-                                  "cars": true,
-                                  "bike": false,
-                                  "location": {
-                                  "lat": 28.633257,
-                                  "lng": 77.370948
-                                  },
-                                  "address": "520, Swarn Jayanti Park Road, Niti Khand 2, Indirapuram, Ghaziabad"
-                                  },{
-                                  "id": "12344",
-                                  "type": "all",
-                                  "user": "others",
-                                  "total": 10,
-                                  "car_available": 41,
-                                  "bike_available": 34,
-                                  "parking_name": "Parking",
-                                  "time": "00:00 to 12:00",
-                                  "price": 50,
-                                  "status": "open",
-                                  "rating": 3.1,
-                                  "cars": true,
-                                  "bike": true,
-                                  "location": {
-                                  "lat": 28.653257,
-                                  "lng": 77.370948
-                                  },
-                                  "address": "Sector 58, Noida"
-                                  }
-            ]
-
+                   {
+                   "id": "1233",
+                   "type": "office",
+                   "user": "others",
+                   "total": 10,
+                   "car_available": 29,
+                   "bike_available": 13,
+                   "rating": 4.1,
+                   "time": "00:00 to 12:00 PM",
+                   "status": "closed",
+                   "parking_name": "R Systems Parking",
+                   "price": 30,
+                   "cars": true,
+                   "bike": false,
+                   "location": {
+                   "lat": 28.633257,
+                   "lng": 77.370948
+                   },
+                   "address": "520, Swarn Jayanti Park Road, Niti Khand 2, Indirapuram, Ghaziabad"
+                   },{
+                   "id": "12344",
+                   "type": "all",
+                   "user": "others",
+                   "total": 10,
+                   "car_available": 41,
+                   "bike_available": 34,
+                   "parking_name": "Parking",
+                   "time": "00:00 to 12:00",
+                   "price": 50,
+                   "status": "open",
+                   "rating": 3.1,
+                   "cars": true,
+                   "bike": true,
+                   "location": {
+                   "lat": 28.653257,
+                   "lng": 77.370948
+                   },
+                   "address": "Sector 58, Noida"
+                   },
+                   {
+                   "id": "1231",
+                   "type": "household",
+                   "user": "all",
+                   "parking_name": "Ajay Ahuja House Parking",
+                   "rating": 2.5,
+                   "total": 3,
+                   "car_available": 2,
+                   "bike_available": 3,
+                   "time": "00:00 to 12:00 PM",
+                   "status": "closed",
+                   "cars": true,
+                   "bike": true,
+                   "price": 75,
+                   "location": {
+                   "lat": 28.624223,
+                   "lng": 77.369328
+                   },
+                   "address": "Block A, Sector 62, Noida, Uttar Pradesh, India"
+                   },
+                   {
+                   "id": "12344",
+                   "type": "all",
+                   "user": "others",
+                   "total": 10,
+                   "car_available": 120,
+                   "bike_available": 50,
+                   "parking_name": "Noida Nokia Red Light Parking",
+                   "time": "00:00 to 12:00",
+                   "price": 50,
+                   "status": "open",
+                   "rating": 3.1,
+                   "cars": true,
+                   "bike": true,
+                   "location": {
+                   "lat": 28.624210,
+                   "lng": 77.365336
+                   },
+                   "address": "Noida Nokia Red Light, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309, India"
+                   },
+                   {
+                   "id": "12344567",
+                   "type": "all",
+                   "user": "all",
+                   "total": 10,
+                   "car_available": 20,
+                   "bike_available": 10,
+                   "parking_name": "B 30, Industrial Area Parking",
+                   "time": "00:00 to 12:00",
+                   "price": 20,
+                   "status": "open",
+                   "rating": 4.0,
+                   "cars": true,
+                   "bike": true,
+                   "location": {
+                   "lat": 28.618680,
+                   "lng": 77.362180
+                   },
+                   "address": "B 30, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309"
+                   }
+                   ]
+    
 }
