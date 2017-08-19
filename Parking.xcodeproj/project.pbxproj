@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		315284D61F4871BF00EF67D0 /* Park_in_team_404_complete_design.zip in Resources */ = {isa = PBXBuildFile; fileRef = 315284D51F4871BF00EF67D0 /* Park_in_team_404_complete_design.zip */; };
 		4F4DC78A1F479AB30095B5CB /* BookingConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DC7891F479AB30095B5CB /* BookingConfirmationVC.swift */; };
 		4F4DC78C1F479F310095B5CB /* QRScannerConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DC78B1F479F310095B5CB /* QRScannerConfirmVC.swift */; };
 		4F4DC78E1F479F960095B5CB /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DC78D1F479F960095B5CB /* PaymentVC.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		2030628E957C3524EB98A8E8 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
+		315284D51F4871BF00EF67D0 /* Park_in_team_404_complete_design.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Park_in_team_404_complete_design.zip; sourceTree = "<group>"; };
 		4F4DC7891F479AB30095B5CB /* BookingConfirmationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingConfirmationVC.swift; sourceTree = "<group>"; };
 		4F4DC78B1F479F310095B5CB /* QRScannerConfirmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerConfirmVC.swift; sourceTree = "<group>"; };
 		4F4DC78D1F479F960095B5CB /* PaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				F411CCA81F4773F4007325F9 /* Main.storyboard */,
 				F45B0E901F4710310008C5F1 /* Assets.xcassets */,
 				F45B0E921F4710310008C5F1 /* LaunchScreen.storyboard */,
+				315284D51F4871BF00EF67D0 /* Park_in_team_404_complete_design.zip */,
 				F45B0E951F4710310008C5F1 /* Info.plist */,
 			);
 			path = Parking;
@@ -200,6 +203,7 @@
 				F411CCA31F4773A3007325F9 /* Parking.json in Resources */,
 				F411CCAA1F4773F4007325F9 /* Main.storyboard in Resources */,
 				F411CCA71F4773A3007325F9 /* riskZone.json in Resources */,
+				315284D61F4871BF00EF67D0 /* Park_in_team_404_complete_design.zip in Resources */,
 				F45B0E941F4710310008C5F1 /* LaunchScreen.storyboard in Resources */,
 				F45B0E911F4710310008C5F1 /* Assets.xcassets in Resources */,
 			);
