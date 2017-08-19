@@ -164,7 +164,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     
     @IBAction func navigateAction(_ sender: Any) {
         
-        openRoute((appDelegate?.selectedLocation)!, destination: self.selectedLocation)
+        openRoute((self.currentLocation)!, destination: self.selectedLocation)
     }
     
     func openRoute(_ source: CLLocation, destination: CLLocation) {
@@ -225,6 +225,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         if marker.userData != nil{
             let index = marker.userData as! Int
             let parking = appDelegate?.arrayParkings[index]
+            marker.title = parking?.type
             reloadView(parking!)
             return true
         }
