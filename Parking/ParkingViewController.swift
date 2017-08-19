@@ -222,13 +222,14 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("didTap marker \(marker.title!)")
         
-        let index = marker.userData as! Int
-        print(index)
-        let parking = appDelegate?.arrayParkings[index]
-        reloadView(parking!)
-        // tap event handled by delegate
+        if marker.userData != nil{
+            let index = marker.userData as! Int
+            let parking = appDelegate?.arrayParkings[index]
+            reloadView(parking!)
+            return true
+        }
         
-        return true
+        return false
     }
     
 }
@@ -243,24 +244,34 @@ extension ParkingViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
         print("Location: \(location)")
-        self.currentLocation = location
+        
         
         if appDelegate?.selectedLocation != nil{
             
+            self.currentLocation = appDelegate?.selectedLocation
             let camera = GMSCameraPosition.camera(withLatitude: (appDelegate?.selectedLocation?.coordinate.latitude)!,longitude: (appDelegate?.selectedLocation?.coordinate.longitude)!,
                                                   zoom: zoomLevel)
             googleMapView.camera = camera
+            let marker = GMSMarker()
+            let location = CLLocation(latitude: (self.currentLocation?.coordinate.latitude)!, longitude: (self.currentLocation?.coordinate.longitude)!)
+            marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            marker.title = ""
+            marker.map = googleMapView
             
+            reloadView((appDelegate?.arrayParkings[5])!)
+
         }
         else{
             let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                                   longitude: location.coordinate.longitude,
                                                   zoom: zoomLevel)
             googleMapView.camera = camera
+            self.currentLocation = location
+            reloadView((appDelegate?.arrayParkings[0])!)
         }
         
         
-        reloadView((appDelegate?.arrayParkings[0])!)
+        
     }
     
     // Handle authorization for the location manager.
