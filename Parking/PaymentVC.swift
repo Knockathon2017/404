@@ -29,6 +29,12 @@ class PaymentVC: UIViewController {
         
     }
     
+    @IBAction func backAction(_ sender: Any) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
+        
+    }
+    
     @IBAction func checkboxPaytmAction(_ sender: UIButton) {
         sender.isSelected = true
         checkBoxWallet.isSelected = false
