@@ -14,7 +14,7 @@
         <!--Risk Factor MapVC-->
         <scene sceneID="amb-KO-Dro">
             <objects>
-                <viewController id="nDT-g7-UR1" customClass="RiskFactorMapVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nDT-g7-UR1" customClass="RiskFactorMapVC" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tvz-qk-PV8"/>
                         <viewControllerLayoutGuide type="bottom" id="aIS-vz-hZR"/>
@@ -114,7 +114,7 @@
         <!--Scanner Controller-->
         <scene sceneID="7Il-E6-9Sa">
             <objects>
-                <viewController id="a6c-NG-jK1" customClass="QRScannerController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a6c-NG-jK1" customClass="QRScannerController" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pgj-9q-13x"/>
                         <viewControllerLayoutGuide type="bottom" id="wGM-3f-Fz7"/>
@@ -200,7 +200,7 @@
         <!--Scanner ConfirmVC-->
         <scene sceneID="Zni-dQ-yjK">
             <objects>
-                <viewController id="Iel-x3-nDl" customClass="QRScannerConfirmVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Iel-x3-nDl" customClass="QRScannerConfirmVC" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3cO-u6-oSk"/>
                         <viewControllerLayoutGuide type="bottom" id="BS2-pw-og3"/>
@@ -316,7 +316,7 @@
         <!--PaymentVC-->
         <scene sceneID="Sr9-l1-iAH">
             <objects>
-                <viewController id="zen-x2-sdM" customClass="PaymentVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zen-x2-sdM" customClass="PaymentVC" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tee-7i-vp3"/>
                         <viewControllerLayoutGuide type="bottom" id="xeR-j7-uhc"/>
@@ -408,7 +408,7 @@
         <!--RatingVC-->
         <scene sceneID="iNc-Sp-3Nn">
             <objects>
-                <viewController id="IqJ-d8-Zhg" customClass="RatingVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IqJ-d8-Zhg" customClass="RatingVC" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7cZ-lz-Cgw"/>
                         <viewControllerLayoutGuide type="bottom" id="cUg-zt-Uft"/>
@@ -594,7 +594,7 @@
         <!--Booking ConfirmationVC-->
         <scene sceneID="K5K-SZ-dLT">
             <objects>
-                <viewController storyboardIdentifier="BookingIdentifier" id="ldT-Zx-LB6" customClass="BookingConfirmationVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingIdentifier" id="ldT-Zx-LB6" customClass="BookingConfirmationVC" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QWM-3s-dgI"/>
                         <viewControllerLayoutGuide type="bottom" id="ubV-7q-erc"/>
@@ -763,7 +763,7 @@
         <!--Parking View Controller-->
         <scene sceneID="h3f-4G-aH0">
             <objects>
-                <viewController id="A56-P1-2eo" customClass="ParkingViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="A56-P1-2eo" customClass="ParkingViewController" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0jD-fi-gIG"/>
                         <viewControllerLayoutGuide type="bottom" id="vxF-Mh-r4s"/>
@@ -774,25 +774,19 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKN-OX-2O1" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="30" width="375" height="467"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghC-cr-8j2">
-                                        <rect key="frame" x="273" y="46" width="90" height="32"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="risk_red"/>
-                                        <connections>
-                                            <segue destination="nDT-g7-UR1" kind="presentation" id="HDd-8q-KYb"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ghC-cr-8j2" secondAttribute="trailing" constant="12" id="68s-ql-3gw"/>
-                                    <constraint firstItem="ghC-cr-8j2" firstAttribute="top" secondItem="PKN-OX-2O1" secondAttribute="top" constant="46" id="deL-jA-ueh"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="mOA-sO-keE" id="o7k-HJ-RJ0"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghC-cr-8j2">
+                                <rect key="frame" x="275" y="75" width="90" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="risk_red"/>
+                                <connections>
+                                    <segue destination="nDT-g7-UR1" kind="presentation" id="HDd-8q-KYb"/>
+                                </connections>
+                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eWF-Rb-brV">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                             </activityIndicatorView>
@@ -964,6 +958,8 @@
                             <constraint firstItem="eWF-Rb-brV" firstAttribute="centerX" secondItem="mOA-sO-keE" secondAttribute="centerX" id="SwD-ge-mnC"/>
                             <constraint firstItem="Msl-YD-ISr" firstAttribute="top" secondItem="PKN-OX-2O1" secondAttribute="bottom" id="XPp-hm-PeD"/>
                             <constraint firstItem="PKN-OX-2O1" firstAttribute="top" secondItem="0jD-fi-gIG" secondAttribute="bottom" constant="10" id="ZDU-Cz-Soh"/>
+                            <constraint firstItem="ghC-cr-8j2" firstAttribute="top" secondItem="uOP-np-cre" secondAttribute="bottom" constant="10" id="ZQw-90-7WV"/>
+                            <constraint firstAttribute="trailing" secondItem="ghC-cr-8j2" secondAttribute="trailing" constant="10" id="dZr-WG-ZHP"/>
                             <constraint firstItem="uOP-np-cre" firstAttribute="leading" secondItem="mOA-sO-keE" secondAttribute="leading" id="nF8-zT-aI0"/>
                             <constraint firstAttribute="trailing" secondItem="PKN-OX-2O1" secondAttribute="trailing" id="p7W-EP-N17"/>
                             <constraint firstItem="uOP-np-cre" firstAttribute="top" secondItem="mOA-sO-keE" secondAttribute="top" id="pY5-K3-Erq"/>
@@ -989,7 +985,7 @@
         <!--Get Initial DetailsVC-->
         <scene sceneID="q5C-9O-KXT">
             <objects>
-                <viewController id="Hle-vc-SdZ" customClass="GetInitialDetailsVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hle-vc-SdZ" customClass="GetInitialDetailsVC" customModule="SafexParking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KtB-Ki-jyd"/>
                         <viewControllerLayoutGuide type="bottom" id="lFj-Y2-osu"/>

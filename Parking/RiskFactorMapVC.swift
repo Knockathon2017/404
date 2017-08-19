@@ -77,8 +77,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
     
     @IBAction func backAction(_ sender: Any) {
         
-        self.navigationController?.popViewController(animated: true)
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Get current location
@@ -90,8 +89,13 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
         self.getlocationForUser {(userLocation: CLLocation) -> () in
             
             
-            
+            if self.appDelegate?.selectedLocation == nil {
+                
+                self.initOverlays(CLLocationCoordinate2DMake(28.6245377, 77.372354))
+            }
+            else{
             self.initOverlays(CLLocationCoordinate2DMake((self.appDelegate?.selectedLocation?.coordinate.latitude)!, (self.appDelegate?.selectedLocation?.coordinate.longitude)!))
+            }
             
             //self.initOverlays(userLocation.coordinate)
             
