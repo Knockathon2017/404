@@ -44,7 +44,7 @@
 		F411CC9F1F4773A3007325F9 /* RiskPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskPolygon.swift; sourceTree = "<group>"; };
 		F411CCA01F4773A3007325F9 /* riskZone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = riskZone.json; sourceTree = "<group>"; };
 		F411CCA91F4773F4007325F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F45B0E861F4710310008C5F1 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F45B0E861F4710310008C5F1 /* SafexParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafexParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45B0E891F4710310008C5F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F45B0E8B1F4710310008C5F1 /* ParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingViewController.swift; sourceTree = "<group>"; };
 		F45B0E901F4710310008C5F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		F45B0E871F4710310008C5F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F45B0E861F4710310008C5F1 /* Parking.app */,
+				F45B0E861F4710310008C5F1 /* SafexParking.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 			);
 			name = Parking;
 			productName = Parking;
-			productReference = F45B0E861F4710310008C5F1 /* Parking.app */;
+			productReference = F45B0E861F4710310008C5F1 /* SafexParking.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -401,7 +401,7 @@
 				INFOPLIST_FILE = Parking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gaurav.Parking;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SafexParking;
 				SWIFT_OBJC_BRIDGING_HEADER = "Parking/Parking-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -416,7 +416,7 @@
 				INFOPLIST_FILE = Parking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gaurav.Parking;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SafexParking;
 				SWIFT_OBJC_BRIDGING_HEADER = "Parking/Parking-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
