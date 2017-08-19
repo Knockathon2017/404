@@ -26,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fetchParking()
         readJson()
         
+        if UserDefaults.standard.object(forKey: "startTime") != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "BookingIdentifier")
+            window?.rootViewController = vc
+        }
+        
         return true
     }
     
@@ -92,17 +98,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 if let object = json as? [String: Any] {
                     // json is a dictionary
-                    let polygons = object["polygons"] as? [[String: Any]]
+                    let polygons = object["risk"] as? [[String: Any]]
                     for polygon in polygons! {
-                        let array = polygon["coordinates"] as? [[Double]]
+                        let lat = polygon["lat"] as? Double
+                        let long = polygon["lng"] as? Double
                         var coordinateArray: [CLLocationCoordinate2D] = []
-                        for coords in array! {
-                            let coord = CLLocationCoordinate2DMake(coords[0], coords[1])
-                            coordinateArray.append(coord)
-                        }
+                       //  [41.40,-10.0],[41.70,-9.50],[42.0,-10.50],[41.70,-11.0],[41.40,-10.0]]
+                        coordinateArray.append(CLLocationCoordinate2DMake(lat! - 0.30, long! - 0.50))
+                        coordinateArray.append(CLLocationCoordinate2DMake(lat! - 0.30, long! + 1.0))
+                        coordinateArray.append(CLLocationCoordinate2DMake(lat!, long!))
+                        coordinateArray.append(CLLocationCoordinate2DMake(lat! - 0.30 , long! - 0.50))
+                        coordinateArray.append(CLLocationCoordinate2DMake(lat! - 0.30, long! + 1.0))
                         let riskZone = polygon["riskZone"] as? Int
                         let address = polygon["address"] as? String
-                        let riskPolygon = RiskPolygon(coordinatesArray: coordinateArray, address: address!, distance: 0.0, riskZone: riskZone!)
+                        let type = polygon["type"] as? String
+                        let riskPolygon = RiskPolygon(coordinatesArray: coordinateArray, address: address!, type: type!, riskZone: riskZone!)
                         self.polygonArray.append(riskPolygon)
                     }
                     

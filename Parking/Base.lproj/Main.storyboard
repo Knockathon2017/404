@@ -27,6 +27,17 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujY-FS-Ltg">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.43787876960590283" green="0.79525351524353027" blue="0.6463960910176122" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ECO-OD-nuQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="qiI-Ge-YwR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxn-ht-2Nk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
@@ -38,7 +49,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-Vr-H4b">
-                                        <rect key="frame" x="12" y="16" width="54" height="33"/>
+                                        <rect key="frame" x="12" y="25.5" width="54" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Cancel"/>
@@ -49,7 +60,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.61176470589999998" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="DXc-Vr-H4b" firstAttribute="centerY" secondItem="Qxn-ht-2Nk" secondAttribute="centerY" id="9zp-LZ-q3u"/>
+                                    <constraint firstItem="DXc-Vr-H4b" firstAttribute="centerY" secondItem="Qxn-ht-2Nk" secondAttribute="centerY" constant="10" id="9zp-LZ-q3u"/>
                                     <constraint firstItem="DXc-Vr-H4b" firstAttribute="leading" secondItem="Qxn-ht-2Nk" secondAttribute="leading" constant="12" id="mcA-e3-1yR"/>
                                     <constraint firstAttribute="height" constant="64" id="sEf-q3-xXS"/>
                                 </constraints>
@@ -60,19 +71,23 @@
                             <constraint firstItem="Qxn-ht-2Nk" firstAttribute="leading" secondItem="77M-ac-bHV" secondAttribute="leading" id="0Zv-wZ-Lq0"/>
                             <constraint firstAttribute="trailing" secondItem="BXQ-0E-S1Z" secondAttribute="trailing" id="7FI-eT-adQ"/>
                             <constraint firstItem="Qxn-ht-2Nk" firstAttribute="top" secondItem="77M-ac-bHV" secondAttribute="top" id="9f3-jN-xBv"/>
+                            <constraint firstItem="ujY-FS-Ltg" firstAttribute="leading" secondItem="77M-ac-bHV" secondAttribute="leading" id="F3I-n7-fSQ"/>
+                            <constraint firstAttribute="trailing" secondItem="ujY-FS-Ltg" secondAttribute="trailing" id="NE2-Qs-Anp"/>
                             <constraint firstItem="aIS-vz-hZR" firstAttribute="top" secondItem="BXQ-0E-S1Z" secondAttribute="bottom" id="Ojk-gp-5z9"/>
                             <constraint firstItem="BXQ-0E-S1Z" firstAttribute="top" secondItem="Qxn-ht-2Nk" secondAttribute="bottom" id="PbT-ba-T44"/>
+                            <constraint firstItem="aIS-vz-hZR" firstAttribute="top" secondItem="ujY-FS-Ltg" secondAttribute="bottom" id="pBY-M8-Jnp"/>
                             <constraint firstAttribute="trailing" secondItem="Qxn-ht-2Nk" secondAttribute="trailing" id="yHQ-tB-I5H"/>
                             <constraint firstItem="BXQ-0E-S1Z" firstAttribute="leading" secondItem="77M-ac-bHV" secondAttribute="leading" id="z7L-bX-r5j"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="googleMapView" destination="BXQ-0E-S1Z" id="oEF-t0-wcp"/>
+                        <outlet property="labelMessage" destination="ujY-FS-Ltg" id="4Rk-pC-E5Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkk-zH-zhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167" y="-1015"/>
+            <point key="canvasLocation" x="1165.5999999999999" y="-1015.1424287856073"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ouk-Ec-eRb">
@@ -627,7 +642,7 @@
         <!--Booking ConfirmationVC-->
         <scene sceneID="K5K-SZ-dLT">
             <objects>
-                <viewController id="ldT-Zx-LB6" customClass="BookingConfirmationVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingIdentifier" id="ldT-Zx-LB6" customClass="BookingConfirmationVC" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QWM-3s-dgI"/>
                         <viewControllerLayoutGuide type="bottom" id="ubV-7q-erc"/>

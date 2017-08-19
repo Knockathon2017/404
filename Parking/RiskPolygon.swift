@@ -13,14 +13,14 @@ open class RiskPolygon: NSObject {
     
     var coordinatesArray: [CLLocationCoordinate2D]
     var address: String!
-    var distance: Float!
     var riskZone: Int!
+    var type: String!
     
     // For schedule listing
-    init(coordinatesArray: [CLLocationCoordinate2D], address: String, distance: Float, riskZone: Int) {
+    init(coordinatesArray: [CLLocationCoordinate2D], address: String, type: String, riskZone: Int) {
         self.coordinatesArray = coordinatesArray
         self.address = address
-        self.distance = distance
+        self.type = type
         self.riskZone = riskZone
     }
     

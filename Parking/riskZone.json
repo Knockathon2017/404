@@ -1,22 +1,68 @@
 {
-    "type": "riskZone",
-    "polygons": [
-                 {
-                 "type": "Area",
-                 "description": "description1",
-                 "address": "address1",
-                 "riskZone": 0,
-                 "coordinates": [
-                                  [41.40,-10.0],[41.70,-9.50],[42.0,-10.50],[41.70,-11.0],[41.40,-10.0]]
-                 },
-                 {
-                 "type": "Area",
-                 "description": "description2",
-                 "address": "address2",
-                 "riskZone": 2,
-                 "coordinates": [
-                                 [22.11,-11.37],[23.11,-10.37],[24.11,-13.37],[23.11,-14.37], [22.11,-11.37]]
-                 }
-                 
-                 ]
+    "risk": [{
+             "_id": "1231",
+             "lat": 28.613341,
+             "lng": 77.374649,
+             "riskZone": 1,
+             "type": "stolen",
+             "address": "Sector 66, Mamura"
+             },
+             {
+             "_id": "12322",
+             "lat": 28.625467,
+             "lng": 77.376264,
+             "riskZone": 1,
+             "type": "stolen",
+             "address": "H Block, Sector 63, Noida, Uttar Pradesh 201301"
+             },
+             {
+             "_id": "12323",
+             "lat": 28.625267,
+             "lng": 77.373419,
+             "riskZone": 1,
+             "type": "stolen",
+             "address": "Pinnacle Tower, Industrial Area, Sector 62, Noida, Uttar Pradesh 201307"
+             },
+             {
+             "_id": "12324",
+             "lat": 28.632082,
+             "lng": 77.368126,
+             "riskZone": 3,
+             "type": "Highway",
+             "address": "AH2, H Block, Sector 63, Noida, Uttar Pradesh 201307"
+             },
+             {
+             "_id": "12312",
+             "lat": 28.627120,
+             "lng": 77.373578,
+             "riskZone": 2,
+             "type": "No parking zone",
+             "address": "Noida sector 62(Corenthum)"
+             },
+             {
+             "_id": "12312",
+             "lat": 28.586605,
+             "lng": 77.350478,
+             "riskZone": 2,
+             "type": "temple",
+             "address": "ISKCON Noida, A-5, Opposite NTPC office"
+             },
+             {
+             "_id": "123122",
+             "lat": 28.564873,
+             "lng": 77.315298,
+             "riskZone": 3,
+             "type": "highway",
+             "address": "Noida-Greater Noida Expy, Gautam Buddha Park"
+             },
+             {
+             "_id": "12312234",
+             "lat": 28.569687,
+             "lng": 77.341852,
+             "riskZone": 3,
+             "type": "monumental area",
+             "address": "Shaheed Smarak Marg Road"
+             }
+             ]
+    
 }

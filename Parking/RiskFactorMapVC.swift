@@ -31,6 +31,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
     
     
     @IBOutlet var googleMapView: GMSMapView!
+    @IBOutlet var labelMessage: UILabel!
     
     var locationManager = CLLocationManager()
     
@@ -80,7 +81,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
             
             
             
-            self.initOverlays(CLLocationCoordinate2DMake( 41.30, -10.20))
+            self.initOverlays(CLLocationCoordinate2DMake(28.625267, 77.373419))
             
             //self.initOverlays(userLocation.coordinate)
             
@@ -122,9 +123,9 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
     
     func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
         
-        if overlay is GMSPolygon {
+        if overlay is GMSCircle, let index = Int(overlay.title!) {
             
-            let alert = UIAlertController(title: overlay.title, message: "", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: appDelegate!.polygonArray[index].address, message: "Type: \(appDelegate!.polygonArray[index].type!)", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil))
             
@@ -157,6 +158,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
                 
                 self.showMapOverlaysInMainQueue()
+                self.addMultipleMarkers()
                 
             })
             
@@ -192,47 +194,82 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
         
         //Add polygon
         
-        for polygon in appDelegate!.polygonArray {
+        for (index, polygon) in appDelegate!.polygonArray.enumerated() {
             
-            let path = GMSMutablePath()
+            let circleCenter = CLLocationCoordinate2D(latitude: polygon.coordinatesArray[2].latitude, longitude: polygon.coordinatesArray[2].longitude)
+            let circle = GMSCircle(position: circleCenter, radius: 100.0)
+            //circle.title = polygon.address
+            circle.title = String(index)
+            circle.fillColor = getPolygonColor(polygon.riskZone)
+            circle.strokeColor = UIColor.clear
+            circle.strokeWidth = 0.5
+            circle.isTappable = true
+            circle.map = self.googleMapView
             
-            for coords in polygon.coordinatesArray {
-                
-                path.add(coords)
-                
+            
+        
+        }
+        
+        for (_, polygon) in appDelegate!.polygonArray.enumerated() {
+            if polygon.coordinatesArray[2].latitude == 28.625267, polygon.coordinatesArray[2].longitude == 77.373419 {
+                labelMessage.text = "You are in red zone."
+                labelMessage.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.5)
+                break
             }
-            
-            let K1polygon = GMSPolygon(path: path)
-            
-            K1polygon.fillColor = getPolygonColor(polygon.riskZone)
-            
-            K1polygon.strokeColor = UIColor.clear
-            
-            K1polygon.strokeWidth = 0.5
-            
-            K1polygon.isTappable = false
-            
-            K1polygon.title = polygon.address
-            
-            K1polygon.map = self.googleMapView
-            
+            else {
+                labelMessage.text = "You are in blue zone."
+                labelMessage.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 0.5)
+            }
         }
         
         
         
     }
     
+    func sandwitchMessage(_ lat: Double,  long: Double) {
+        if lat == 28.625267, long == 77.373419 {
+           labelMessage.text = "You are in red zone."
+           labelMessage.backgroundColor = UIColor.red
+        }
+        else {
+           labelMessage.text = "You are in blue zone."
+             labelMessage.backgroundColor = UIColor.yellow
+        }
+    }
+    
+    func addMultipleMarkers(){
+        
+        for (index,parking) in (appDelegate?.arrayParkings.enumerated())! {
+            // let parking = arrayParkings[index]
+            let marker = GMSMarker()
+            let location = CLLocation(latitude: parking.latitude!, longitude: parking.longitude!)
+            marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            marker.title = parking.name
+            marker.map = googleMapView
+            marker.userData = index
+            if parking.type == "household"{
+                marker.icon = UIImage(named: "house")
+            }
+            else if parking.type == "office"{
+                marker.icon = UIImage(named: "office")
+            }
+            else{
+                marker.icon = UIImage(named: "all")
+            }
+        }
+    }
+
     
     
     func getPolygonColor(_ zoneType: Int) -> UIColor {
         
-        if zoneType == 0 {
+        if zoneType == 1 {
             
             return UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.4)
             
         }
             
-        else if zoneType == 1 {
+        else if zoneType == 2 {
             
             return UIColor(red: 245/255, green: 208/255, blue: 76/255, alpha: 0.6)
             
@@ -256,7 +293,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
             
         }
         
-        updateZoomLevel(coords, zoomLevel: 3.0)
+        updateZoomLevel(coords, zoomLevel: 15.0)
         
         
         
@@ -342,7 +379,7 @@ class RiskFactorMapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDe
     
     func initOverlays(_ locationCords: CLLocationCoordinate2D) {
         
-        updateZoomLevel(locationCords, zoomLevel: 3.0)
+        updateZoomLevel(locationCords, zoomLevel: 15.0)
         
         self.currentLocation = locationCords
         

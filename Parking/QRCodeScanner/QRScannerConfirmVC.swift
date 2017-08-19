@@ -36,6 +36,7 @@ class QRScannerConfirmVC: UIViewController, AVCaptureMetadataOutputObjectsDelega
      func getTravelTimeString() -> Int {
         
         let timeInSeconds = UserDefaults.standard.object(forKey: "startTime") as! Int
+            UserDefaults.standard.removeObject(forKey: "startTime")
            
             let (h, _, _) = (timeInSeconds / 3600, (timeInSeconds % 3600) / 60, (timeInSeconds % 3600) % 60)
             return h

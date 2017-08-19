@@ -27,13 +27,11 @@ class BookingConfirmationVC: UIViewController {
     
     
     override func viewDidLoad() {
-        vehicleType = 0
         
         if UserDefaults.standard.object(forKey: "startTime") == nil {
             UserDefaults.standard.set(Date().timeIntervalSinceNow, forKey: "startTime")
         }
         
-        cleaningAvailable = false
         vehicleCarNumberLbl.text = "UP 32 BJ 2345"
         if vehicleType == 0 {
             vehicleTypeLbl.text = "car"
