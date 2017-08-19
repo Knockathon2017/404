@@ -1,156 +1,65 @@
 {
-    "parkingArea": [
-                    {
-                    "id": "1231",
-                    "type": "household",
-                    "user": "all",
-                    "parking_name": "Shipra Mall",
-                    "rating": 2.5,
-                    "total": 3,
-                    "available": 1,
-                    "time": "00:00 to 12:00 PM",
-                    "status": "closed",
-                    "cars": true,
-                    "bike": true,
-                    "price": 75,
-                    "location": {
-                    "lat": 28.635977,
-                    "lng": 77.365461
-                    },
-                    "address": "Vaibhav Khand, Indirapuram, Ghaziabad, Uttar Pradesh 201014"
-                    },
-                    {
-                    "id": "1233",
-                    "type": "office",
-                    "user": "others",
-                    "total": 10,
-                    "available": 8,
-                    "rating": 4.1,
-                    "time": "00:00 to 12:00 PM",
-                    "status": "closed",
-                    "parking_name": "R Systems Parking",
-                    "price": 30,
-                    "cars": true,
-                    "bike": false,
-                    "location": {
-                    "lat": 28.641617,
-                    "lng": 77.370926
-                    },
-                    "address": "520, Swarn Jayanti Park Road, Niti Khand 2, Indirapuram, Ghaziabad"
-                    },
-                    {
-                    "id": "12344",
-                    "type": "all",
-                    "user": "others",
-                    "total": 10,
-                    "available": 5,
-                    "parking_name": "Secotor 61, Parking",
-                    "time": "00:00 to 12:00",
-                    "price": 50,
-                    "status": "open",
-                    "rating": 3.1,
-                    "cars": true,
-                    "bike": true,
-                    "location": {
-                    "lat": 28.606751,
-                    "lng": 77.359719
-                    },
-                    "address": "Sector 58, Noida"
-                    },
-                    {
-                    "id": "123445",
-                    "type": "all",
-                    "user": "others",
-                    "total": 10,
-                    "available": 5,
-                    "parking_name": "logix mall noida",
-                    "time": "00:00 to 12:00",
-                    "price": 50,
-                    "status": "open",
-                    "rating": 3.3,
-                    "cars": true,
-                    "bike": true,
-                    "location": {
-                    "lat": 28.574350,
-                    "lng": 77.353593
-                    },
-                    "address": "Plot No. BW-58, Sector 32, Near Noida Metro Station, Noida, Uttar Pradesh 201301"
-                    },
-                    {
-                    "id": "1234456",
-                    "type": "all",
-                    "user": "others",
-                    "total": 10,
-                    "available": 5,
-                    "parking_name": "Wave City Centre",
-                    "time": "10:00 to 12:00",
-                    "price": 60,
-                    "status": "open",
-                    "rating": 4.1,
-                    "cars": true,
-                    "bike": true,
-                    "location": {
-                    "lat": 28.574744,
-                    "lng": 77.356026
-                    },
-                    "address": "wave city centre, sector 39a, sector 32, noida, uttar pradesh 201303, india"
-                    },
-                    {
-                    "id": "1234456",
-                    "type": "household",
-                    "user": "all",
-                    "total": 10,
-                    "available": 5,
-                    "parking_name": "Vikas Gupta, 5, Shivalik Marg",
-                    "time": "11:00 to 12:00",
-                    "price": 40,
-                    "status": "open",
-                    "rating": 3.1,
-                    "cars": true,
-                    "bike": true,
-                    "location": {
-                    "lat": 28.581858,
-                    "lng": 77.356832
-                    },
-                    "address": "5, Shivalik Marg, M.R. Pradhan Market, Morna, Sector 35, Noida, Uttar Pradesh 201307"
-                    },
-                    {
-                    "id": "12344567",
-                    "type": "household",
-                    "user": "all",
-                    "total": 10,
-                    "available": 5,
-                    "parking_name": "Akash Singh, 72, Jain Rd, Parking",
-                    "time": "08:00 to 12:00",
-                    "price": 20,
-                    "status": "open",
-                    "rating": 3.0,
-                    "cars": true,
-                    "bike": true,
-                    "location": {
-                    "lat": 28.573167,
-                    "lng": 77.356878
-                    },
-                    "address": "72, Jain Rd, Sector 39A, Sector 39, Noida, Uttar Pradesh 201303"
-                    },
-                    {
-                    "id": "12344567",
-                    "type": "household",
-                    "user": "all",
-                    "total": 10,
-                    "available": 5,
-                    "parking_name": "B 30, Industrial Area Parking",
-                    "time": "00:00 to 12:00",
-                    "price": 20,
-                    "status": "open",
-                    "rating": 4.0,
-                    "cars": true,
-                    "bike": true,
-                    "location": {
-                    "lat": 28.618680,
-                    "lng": 77.362180
-                    },
-                    "address": "B 30, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309"
-                    }
-                    ]
+    "parkingArea":[
+                                  {
+                                  "id": "1231",
+                                  "type": "household",
+                                  "user": "all",
+                                  "parking_name": "Ajay Ahuja",
+                                  "rating": 2.5,
+                                  "total": 3,
+                                  "car_available": 67,
+                                  "bike_available": 45,
+                                  "time": "00:00 to 12:00 PM",
+                                  "status": "closed",
+                                  "cars": true,
+                                  "bike": true,
+                                  "price": 75,
+                                  "location": {
+                                  "lat": 28.6460708,
+                                  "lng": 77.334491
+                                  },
+                                  "address": "Sector 3, Vaishali, Ghaziabad"
+                                  },
+                   
+                                  {
+                                  "id": "1233",
+                                  "type": "office",
+                                  "user": "others",
+                                  "total": 10,
+                                  "car_available": 29,
+                                  "bike_available": 13,
+                                  "rating": 4.1,
+                                  "time": "00:00 to 12:00 PM",
+                                  "status": "closed",
+                                  "parking_name": "R Systems Parking",
+                                  "price": 30,
+                                  "cars": true,
+                                  "bike": false,
+                                  "location": {
+                                  "lat": 28.633257,
+                                  "lng": 77.370948
+                                  },
+                                  "address": "520, Swarn Jayanti Park Road, Niti Khand 2, Indirapuram, Ghaziabad"
+                                  },{
+                                  "id": "12344",
+                                  "type": "all",
+                                  "user": "others",
+                                  "total": 10,
+                                  "car_available": 41,
+                                  "bike_available": 34,
+                                  "parking_name": "Parking",
+                                  "time": "00:00 to 12:00",
+                                  "price": 50,
+                                  "status": "open",
+                                  "rating": 3.1,
+                                  "cars": true,
+                                  "bike": true,
+                                  "location": {
+                                  "lat": 28.653257,
+                                  "lng": 77.370948
+                                  },
+                                  "address": "Sector 58, Noida"
+                                  }
+            ]
+
 }
