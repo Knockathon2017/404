@@ -38,7 +38,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     
     
     
-    
+    var isCar = true
     @IBOutlet weak var label_Price: UILabel!
     @IBOutlet weak var label_Rating: UILabel!
     @IBOutlet weak var label_Address: UILabel!
@@ -68,10 +68,22 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         
     }
     
-    @IBAction func bikeSelected(_ sender: Any) {
+    @IBAction func backAction(_ sender: Any) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
         
     }
+    
+    @IBAction func bikeSelected(_ sender: Any) {
+        
+         isCar = false
+        self.performSegue(withIdentifier: "ScanCode", sender: sender)
+       
+    }
     @IBAction func carSelected(_ sender: UIButton) {
+         isCar = true
+        self.performSegue(withIdentifier: "ScanCode", sender: sender)
+
     }
     
     func addMultipleMarkers(){
@@ -115,7 +127,22 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ScanCode" {
+            
+            if let vc = segue.destination as? QRScannerController{
+                
+               vc.address = label_Address.text
+                if isCar{
+                    vc.vehicleType = 0
+                }
+                else{
+                    vc.vehicleType = 1
+                }
+               
+            }
+        }
+    }
     
     func reloadView(_ parking: Parking){
         

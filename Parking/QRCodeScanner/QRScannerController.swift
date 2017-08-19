@@ -14,6 +14,11 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
     var isDetected: Bool = false
+    var vehicleType: Int!
+    var address: String! = "Dummy Address"
+    var cleaningAvailable: Bool!
+    var charge: Int! = 20
+
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -129,5 +134,16 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             }
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BookingVC" {
+            
+            if let vc = segue.destination as? BookingConfirmationVC{
+                
+                vc.address = address
+                vc.vehicleType = vehicleType
+                
+            }
+        }
+    }
 }

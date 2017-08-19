@@ -37,9 +37,11 @@ class BookingConfirmationVC: UIViewController {
         vehicleCarNumberLbl.text = "UP 32 BJ 2345"
         if vehicleType == 0 {
             vehicleTypeLbl.text = "car"
+            charge = 40
         }
         else {
             vehicleTypeLbl.text = "bike"
+            charge = 20
         }
         if cleaningAvailable {
             cleaningLbl.text = "Want to avail cleaning? (cost Rs. 40)"
@@ -86,6 +88,10 @@ class BookingConfirmationVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ConfirmScanner" {
             
+            if let vc = segue.destination as? QRScannerConfirmVC{
+                
+                vc.amount = charge
+            }
         }
     }
     

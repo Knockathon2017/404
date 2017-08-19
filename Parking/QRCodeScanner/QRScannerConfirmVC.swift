@@ -16,6 +16,7 @@ class QRScannerConfirmVC: UIViewController, AVCaptureMetadataOutputObjectsDelega
     @IBOutlet var timeLbl: UILabel!
     @IBOutlet var amountLbl: UILabel!
     var isDetected: Bool = false
+    var amount: Int = 20
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -32,25 +33,20 @@ class QRScannerConfirmVC: UIViewController, AVCaptureMetadataOutputObjectsDelega
                         AVMetadataObjectTypePDF417Code,
                         AVMetadataObjectTypeQRCode]
     
-    static func getTravelTimeString(_ timeInSeconds: Int) -> String {
-        let (h, m, _) = (timeInSeconds / 3600, (timeInSeconds % 3600) / 60, (timeInSeconds % 3600) % 60)
-        if h < 1 {
-            return "\(m) min"
-        }
-        else if h == 1 {
-            return "\(h) hour"
-        }
-        else {
-            return "\(h) hours \(m) min"
-        }
+     func getTravelTimeString() -> Int {
+        
+        let timeInSeconds = UserDefaults.standard.object(forKey: "startTime") as! Int
+           
+            let (h, _, _) = (timeInSeconds / 3600, (timeInSeconds % 3600) / 60, (timeInSeconds % 3600) % 60)
+            return h
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.amountLbl.text = ""
-        
+        self.amountLbl.text = String(getTravelTimeString() * amount)
+        self.timeLbl.text = String(getTravelTimeString())
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         

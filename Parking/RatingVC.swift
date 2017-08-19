@@ -20,6 +20,18 @@ class RatingVC: UIViewController {
     @IBOutlet var feedbackTextView: UITextView!
     @IBOutlet var confirmButton: UIButton!
     
+    override func viewDidLoad() {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(RatingVC.handleTap))
+//        self.view.addGestureRecognizer(tap)
+    }
+    
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
+    
     @IBAction func cancelButton(_ sender: UIButton) {
          self.navigationController?.popToRootViewController(animated: true)
     }
