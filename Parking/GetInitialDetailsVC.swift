@@ -14,7 +14,7 @@ class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDel
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-    var array_Locations = [["name":"Sector 62","lat":28.6228354,"long":77.3490503],["name":"Noida City Center","lat":28.5747441,"long":77.3538376]]
+    var array_Locations = [["name":"Sector 62","lat":28.6245377,"long":77.372354],["name":"Noida City Center","lat":28.5747441,"long":77.3538376]]
     
     @IBOutlet weak var tableViewLocation: UITableView!
     @IBOutlet weak var textFieldLocation: UITextField!
@@ -28,6 +28,16 @@ class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     @IBAction func showLocation(_ sender: Any) {
+        
+        if appDelegate?.selectedLocation == nil{
+            
+            let lat = array_Locations[0]["lat"] as? Double
+            let long = array_Locations[0]["long"] as? Double
+            
+            let location = CLLocation(latitude: lat!, longitude: long!)
+            appDelegate?.selectedLocation = location
+            
+        }
         self.performSegue(withIdentifier: "FindParking", sender: sender)
         
     }
