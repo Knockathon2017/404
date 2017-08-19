@@ -15,12 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var polygonArray: [RiskPolygon]!
+    var arrayParkings = [Parking]()
     
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyDcbYjHrMlF7f7KHNCV0XaKZZj_B3CZqRY")
         GMSPlacesClient.provideAPIKey("AIzaSyDcbYjHrMlF7f7KHNCV0XaKZZj_B3CZqRY")
         
+        fetchParking()
         readJson()
         
         return true
@@ -55,9 +58,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let file = Bundle.main.url(forResource: "Parking", withExtension: "json") {
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
+                
                 if let object = json as? [String: Any] {
                     // json is a dictionary
-                
+                let parkings = object["parkingArea"] as? [Dictionary<String,Any>]
+                    print(parkings!)
+                    
+                    for dictionary in parkings!{
+                        
+                        let parking = Parking(dictionary)
+                        self.arrayParkings.append(parking)
+                    }
                     
                 } else if let object = json as? [Any] {
                     // json is an array

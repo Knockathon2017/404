@@ -12,21 +12,37 @@ import CoreLocation
 
 
 /// Point of Interest Item which implements the GMUClusterItem protocol.
-class POIItem: NSObject, GMUClusterItem {
+enum MarkerType: Int32 {
+    
+    case House, Office, All
+    
+}
+
+class CustomClusterItem: NSObject, GMUClusterItem {
     var position: CLLocationCoordinate2D
     var name: String!
-    var imageName: String!
+    var type: MarkerType
+    var parking: Parking
     
-    init(position: CLLocationCoordinate2D, name: String, imageName: String) {
+    init(position: CLLocationCoordinate2D, name: String,type:MarkerType, parking: Parking) {
         self.position = position
         self.name = name
-        self.imageName = imageName
+        self.type = type
+        self.parking = parking
     }
-}
+    
+    }
 
 
 class ParkingViewController: UIViewController,GMSMapViewDelegate {
     
+    
+    
+    
+    @IBOutlet weak var label_Price: UILabel!
+    @IBOutlet weak var label_Rating: UILabel!
+    @IBOutlet weak var label_Address: UILabel!
+    @IBOutlet weak var label_Distance: UILabel!
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     
@@ -41,7 +57,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     let kCameraLongitude = 77.37371218
     
     var arrayParkings = [Parking]()
-
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +79,8 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         
         // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
         clusterManager.setDelegate(self, mapDelegate: self)
+        
+        
     }
     
     
@@ -95,13 +113,65 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         }
     }
     
+    func reloadView(_ parking: Parking){
+        
+        label_Address.text = parking.address
+        label_Rating.text =  String(parking.rating!)
+        label_Price.text = "\(String(parking.price!)) rs/Per Hour"
+        
+        let destiny = CLLocation(latitude: parking.latitude!, longitude: parking.longitude!)
+        let distance = (self.currentLocation?.distance(from: destiny))!
+        if distance > 1000{
+            
+            let dist = String(format: "%.2f", distance/1000)
+            label_Distance.text = "\(dist) km"
+        }
+        else{
+            let dist = String(format: "%.0f", distance)
+            label_Distance.text = "\(dist) m"
+        }
+        
+    }
+    
 }
 
 extension ParkingViewController: GMUClusterManagerDelegate{
     
-    
-    // MARK: - GMUClusterManagerDelegate
-    
+    func renderer(_ renderer: GMUClusterRenderer, willRenderMarker marker:
+        GMSMarker) {
+        
+        if (marker.userData! is CustomClusterItem) {
+            
+            let customClusterItem = (marker.userData! as! CustomClusterItem)
+            
+            
+            
+            switch customClusterItem.type {
+                
+            case MarkerType.House:
+                
+                marker.icon = UIImage(named: "house")
+                
+                break
+                
+            case MarkerType.Office:
+                
+                marker.icon = UIImage(named: "office")
+                
+                break
+                
+            case MarkerType.All:
+                
+                marker.icon = UIImage(named: "all")
+                
+                break
+                
+            }
+            
+        }
+        
+    }
+
     func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) -> Bool {
         let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
                                                  zoom: googleMapView.camera.zoom + 1)
@@ -113,10 +183,11 @@ extension ParkingViewController: GMUClusterManagerDelegate{
     // MARK: - GMUMapViewDelegate
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        if let poiItem = marker.userData as? POIItem {
+        if let poiItem = marker.userData as? CustomClusterItem {
             NSLog("Did tap marker for cluster item \(poiItem.name)")
             marker.title = poiItem.name
-            marker.icon = UIImage(named: poiItem.imageName)
+            self.reloadView(poiItem.parking)
+            
         } else {
             NSLog("Did tap a normal marker")
         }
@@ -129,25 +200,26 @@ extension ParkingViewController: GMUClusterManagerDelegate{
     /// cluster manager.
      func generateClusterItems() {
         //let extent = 0.2
-        for index in 0...arrayParkings.count {
-            let parking = arrayParkings[index]
+        for (_,parking) in (appDelegate?.arrayParkings.enumerated())! {
+           // let parking = arrayParkings[index]
             
             let lat = parking.latitude
             let long = parking.longitude
             let name = parking.name
-            var imageName = ""
+            var type: MarkerType
+            
             if parking.type == "household"{
-                imageName = "household"
+                type = .House
             }
-            else if parking.type == "household"{
-                imageName = "office"
+            else if parking.type == "office"{
+                type = .Office
             }
             else{
-                imageName = "all"
+                type = .All
             }
             
             
-            let item = POIItem(position: CLLocationCoordinate2DMake(lat!, long!), name: name!,imageName: imageName)
+            let item = CustomClusterItem(position: CLLocationCoordinate2DMake(lat!, long!), name: name!, type: type, parking: parking)
             
 //            let lat = kCameraLatitude + extent * randomScale()
 //            let lng = kCameraLongitude + extent * randomScale()
@@ -173,17 +245,19 @@ extension ParkingViewController: CLLocationManagerDelegate {
             let location: CLLocation = locations.last!
             print("Location: \(location)")
             self.currentLocation = location
-            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                                  longitude: location.coordinate.longitude,
+            //let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+               //                                   longitude: location.coordinate.longitude,
+               //                                   zoom: zoomLevel)
+            let camera = GMSCameraPosition.camera(withLatitude: kCameraLatitude,
+                                                  longitude: kCameraLongitude,
                                                   zoom: zoomLevel)
-            
             googleMapView.camera = camera
             //        // Creates a marker in the center of the map.
             
-                    marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                    marker.title = "Current Location"
-                    //marker.snippet = "Australia"
-            
+//                    marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//                    marker.title = "Current Location"
+//                    marker.icon = UIImage(named: "all")
+            reloadView((appDelegate?.arrayParkings[0])!)
         }
         
         // Handle authorization for the location manager.

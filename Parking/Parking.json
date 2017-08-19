@@ -1,35 +1,36 @@
 {
     "parkingArea":[
                                   {
-                                  "_id": "1231",
+                                  "id": "1231",
                                   "type": "household",
                                   "user": "all",
                                   "parking_name": "Ajay Ahuja",
-                                  "rating": 3.1,
-                                  "total": "2",
-                                  "available": "1",
+                                  "rating": 2.5,
+                                  "total": 3,
+                                  "available": 1,
                                   "time": "00:00 to 12:00 PM",
                                   "status": "closed",
                                   "cars": true,
                                   "bike": true,
-                                  "costcar": 100,
+                                  "price": 75,
                                   "location": {
                                   "lat": 28.6460708,
                                   "lng": 77.334491
                                   },
                                   "address": "Sector 3, Vaishali, Ghaziabad"
                                   },
+                   
                                   {
-                                  "_id": "1233",
+                                  "id": "1233",
                                   "type": "office",
                                   "user": "others",
-                                  "total": "10",
-                                  "available": "8",
+                                  "total": 10,
+                                  "available": 8,
                                   "rating": 4.1,
                                   "time": "00:00 to 12:00 PM",
                                   "status": "closed",
                                   "parking_name": "R Systems Parking",
-                                  "costcar": 50,
+                                  "price": 30,
                                   "cars": true,
                                   "bike": false,
                                   "location": {
@@ -38,20 +39,20 @@
                                   },
                                   "address": "520, Swarn Jayanti Park Road, Niti Khand 2, Indirapuram, Ghaziabad"
                                   },{
-                                  "_id": "12344",
+                                  "id": "12344",
                                   "type": "all",
                                   "user": "others",
-                                  "total": "10",
-                                  "available": "5",
-                                  "name": "Parking",
+                                  "total": 10,
+                                  "available": 5,
+                                  "parking_name": "Parking",
                                   "time": "00:00 to 12:00",
-                                  "costcar": 100,
+                                  "price": 50,
                                   "status": "open",
                                   "rating": 3.1,
                                   "cars": true,
                                   "bike": true,
                                   "location": {
-                                  "lat": 28.633257,
+                                  "lat": 28.653257,
                                   "lng": 77.370948
                                   },
                                   "address": "Sector 58, Noida"

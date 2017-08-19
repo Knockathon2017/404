@@ -10,8 +10,8 @@
 import Foundation
 class Parking {
     
-    var id: Int?
-    var rating: Int?
+    var id: String?
+    var rating: Double?
     var name: String?
     var address: String?
     var type: String?
@@ -28,8 +28,8 @@ class Parking {
     
     init(_ dictionary: Dictionary<String, Any>) {
         
-        self.id = dictionary["id"] as? Int
-        self.rating = dictionary["rating"] as? Int
+        self.id = dictionary["id"] as? String
+        self.rating = dictionary["rating"] as? Double
         self.name = dictionary["parking_name"] as? String
         self.address = dictionary["address"] as? String
         self.type = dictionary["type"] as? String
@@ -39,14 +39,14 @@ class Parking {
         self.available = dictionary["available"] as? Int
         self.isCar = dictionary["cars"] as? Bool
         self.isBike = dictionary["bike"] as? Bool
-        self.price = dictionary["costcar"] as? Int
+        self.price = dictionary["price"] as? Int
         self.status = dictionary["status"] as? String
         self.time = dictionary["time"] as? String
 
         
         if let location = dictionary["location"] as? Dictionary<String,Any>{
-            self.latitude = location["latitude"] as? Double
-            self.longitude = location["longitude"] as? Double
+            self.latitude = location["lat"] as? Double
+            self.longitude = location["lng"] as? Double
         }
         
 
