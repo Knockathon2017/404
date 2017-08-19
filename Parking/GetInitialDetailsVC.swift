@@ -11,7 +11,7 @@ import UIKit
 
 class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate{
     
-    var array_Locations = ["Sector 62","Sector 18","Sector 56","Indirapuram","Vaishali","Noida City center"]
+    var array_Locations = [["name":"Sector 62","lat":28.6228354,"long":77.3490503],["name":"Noida City Center","lat":28.5747441,"long":77.3538376]]
     
     @IBOutlet weak var tableViewLocation: UITableView!
     @IBOutlet weak var textFieldLocation: UITextField!
@@ -25,10 +25,13 @@ class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     @IBAction func showLocation(_ sender: Any) {
+        self.performSegue(withIdentifier: "ShowRisk", sender: sender)
         
     }
     @IBAction func useCurrentLocation(_ sender: Any) {
         
+        self.performSegue(withIdentifier: "ShowRisk", sender: sender)
+
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -39,13 +42,13 @@ class GetInitialDetailsVC: UIViewController,UITableViewDataSource,UITableViewDel
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = array_Locations[indexPath.row]
+        cell.textLabel?.text = array_Locations[indexPath.row]["name"] as? String
         return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        textFieldLocation.text = array_Locations[indexPath.row]
+        textFieldLocation.text = array_Locations[indexPath.row]["name"] as? String
         tableViewLocation.deselectRow(at: indexPath, animated: true)
         tableViewLocation.isHidden = true
         
