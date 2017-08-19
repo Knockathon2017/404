@@ -45,6 +45,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var label_Rating: UILabel!
     @IBOutlet weak var label_Address: UILabel!
     @IBOutlet weak var label_Distance: UILabel!
+    
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     
@@ -54,6 +55,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     
     
     let kClusterItemCount = 25
+    
     let kCameraLatitude =  28.62489915
     let kCameraLongitude = 77.37371218
     
@@ -72,7 +74,7 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
     
     @IBAction func backAction(_ sender: Any) {
         
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
         
     }
     
@@ -119,7 +121,6 @@ class ParkingViewController: UIViewController,GMSMapViewDelegate {
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
-        
         
     }
     
@@ -201,10 +202,22 @@ extension ParkingViewController: CLLocationManagerDelegate {
         let location: CLLocation = locations.last!
         print("Location: \(location)")
         self.currentLocation = location
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                           longitude: location.coordinate.longitude,
-                                           zoom: zoomLevel)
-        googleMapView.camera = camera
+        
+        if appDelegate?.selectedLocation != nil{
+            
+            let camera = GMSCameraPosition.camera(withLatitude: (appDelegate?.selectedLocation?.coordinate.latitude)!,longitude: (appDelegate?.selectedLocation?.coordinate.longitude)!,
+                                                  zoom: zoomLevel)
+            googleMapView.camera = camera
+            
+        }
+        else{
+            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                                  longitude: location.coordinate.longitude,
+                                                  zoom: zoomLevel)
+            googleMapView.camera = camera
+        }
+        
+        
         reloadView((appDelegate?.arrayParkings[0])!)
     }
     
