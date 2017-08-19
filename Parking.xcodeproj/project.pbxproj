@@ -22,7 +22,7 @@
 		F411CCA71F4773A3007325F9 /* riskZone.json in Resources */ = {isa = PBXBuildFile; fileRef = F411CCA01F4773A3007325F9 /* riskZone.json */; };
 		F411CCAA1F4773F4007325F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F411CCA81F4773F4007325F9 /* Main.storyboard */; };
 		F45B0E8A1F4710310008C5F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45B0E891F4710310008C5F1 /* AppDelegate.swift */; };
-		F45B0E8C1F4710310008C5F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45B0E8B1F4710310008C5F1 /* ViewController.swift */; };
+		F45B0E8C1F4710310008C5F1 /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45B0E8B1F4710310008C5F1 /* ParkingViewController.swift */; };
 		F45B0E911F4710310008C5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F45B0E901F4710310008C5F1 /* Assets.xcassets */; };
 		F45B0E941F4710310008C5F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45B0E921F4710310008C5F1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -46,7 +46,7 @@
 		F411CCA91F4773F4007325F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F45B0E861F4710310008C5F1 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45B0E891F4710310008C5F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F45B0E8B1F4710310008C5F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F45B0E8B1F4710310008C5F1 /* ParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingViewController.swift; sourceTree = "<group>"; };
 		F45B0E901F4710310008C5F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F45B0E931F4710310008C5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F45B0E951F4710310008C5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				F411CC9D1F4773A3007325F9 /* Parking.swift */,
 				F411CC9F1F4773A3007325F9 /* RiskPolygon.swift */,
 				F411CCA01F4773A3007325F9 /* riskZone.json */,
-				F45B0E8B1F4710310008C5F1 /* ViewController.swift */,
+				F45B0E8B1F4710310008C5F1 /* ParkingViewController.swift */,
 				F411CCA81F4773F4007325F9 /* Main.storyboard */,
 				F45B0E901F4710310008C5F1 /* Assets.xcassets */,
 				F45B0E921F4710310008C5F1 /* LaunchScreen.storyboard */,
@@ -260,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F45B0E8C1F4710310008C5F1 /* ViewController.swift in Sources */,
+				F45B0E8C1F4710310008C5F1 /* ParkingViewController.swift in Sources */,
 				F411CCA61F4773A3007325F9 /* RiskPolygon.swift in Sources */,
 				F411CCA11F4773A3007325F9 /* GetInitialDetailsVC.swift in Sources */,
 				4F6BE2791F4779B700B76C03 /* QRScannerController.swift in Sources */,
